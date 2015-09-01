@@ -10,6 +10,9 @@ import org.json.JSONObject;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -46,20 +49,32 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 	private ImageLoader imageLoader;
 	private DisplayImageOptions options;
 	
+	private int type ;
+	private int classid;
+	private int title;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.gridview);
-		setTitle("内饰中控");
 		isShowLeftView(true);
 		isShowRightView(0, false);
 		ViewUtils.inject(this);
 
+		type = getIntent().getIntExtra("type", 1);
+		type = type +1;
+		if(type != 5 || type != 9){
+			classid = type;
+		}
+		
+		title = getIntent().getIntExtra("title", 0);
+		setTitle(getResources().getString(title));
+		
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
-		http.getClassContent(3805, 1);
+		http.getClassContent(3805, classid);
 		datas = new ArrayList<InteriorControlEntity>();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.car_normal_mid)
@@ -83,6 +98,18 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 		};
 		
 		gridView.setAdapter(adapter);
+		
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Bundle bundle = new Bundle();
+				bundle.putInt("classid", datas.get(position).getClassid());
+				openActivity(ShowActivity.class,bundle);
+			}
+		});
 	}
 
 	@Override

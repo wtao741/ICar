@@ -155,6 +155,8 @@ public class HomeActivity extends Activity {
 				}
 				if (classType != null) {
 					Intent intent = new Intent(HomeActivity.this, classType);
+					intent.putExtra("type", position);
+					intent.putExtra("title", strs[position]);
 					startActivity(intent);
 				}
 			}

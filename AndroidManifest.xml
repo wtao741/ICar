@@ -178,6 +178,10 @@
           <activity
             android:name=".SettingPasswordActivity"
             android:screenOrientation="portrait" />
+          
+          <activity
+            android:name=".ShowActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -266,17 +266,20 @@ public class HttpUtil {
 	 */
 	public void getClassContent(int seriesid,int classid){
 		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=getClassContent&seriesid="+seriesid+"&classid="+classid+"&callback=";
+		tips.showLoadingDialog(context);
 		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
 
 			@Override
 			public void onFailure(HttpException arg0, String arg1) {
 				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
 				httpCallBack.onFailure(0,arg0, arg1);
 			}
 
 			@Override
 			public void onSuccess(ResponseInfo<String> arg0) {
 				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
 				httpCallBack.onSuccess(0,arg0);
 			}
 		});
