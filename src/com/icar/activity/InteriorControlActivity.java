@@ -62,8 +62,8 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 		http.getClassContent(3805, 1);
 		datas = new ArrayList<InteriorControlEntity>();
 		imageLoader = ImageLoader.getInstance();
-		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.userinfo)
-				.showImageOnFail(R.drawable.userinfo).showImageForEmptyUri(R.drawable.userinfo).
+		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.car_normal_mid)
+				.showImageOnFail(R.drawable.car_normal_mid).showImageForEmptyUri(R.drawable.car_normal_mid).
 				cacheInMemory(true).build();
 		
 	}

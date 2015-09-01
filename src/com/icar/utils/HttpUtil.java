@@ -455,6 +455,11 @@ public class HttpUtil {
 		});
 	}
 	
+	public void getHtmlContent(int seriesid,int classid){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=getHtmlContent&seriesid="+seriesid+"&classid="+classid;
+	    
+	}
+	
 	public void showShortToast(String message){
 		Toast.makeText(context, message, 2000).show();
 	}
