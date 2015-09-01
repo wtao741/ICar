@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="@dimen/dimen_140_dip"
+        android:layout_height="@dimen/dimen_128_dip" >
+
+        <RelativeLayout
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/dimen_123_dip"
+            android:layout_height="@dimen/dimen_108_dip"
+            android:background="@drawable/bgm_border" >
+
+            <ImageView 
+                android:id="@+id/my_like_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_10_dip"
+                android:scaleType="center"
+                />
+            <TextView
+                android:id="@+id/my_like_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_like_iv"
+                android:layout_marginTop="@dimen/dimen_5_dip"
+                android:textColor="@color/home_title_bgm"
+                android:textSize="11sp" 
+                android:text="123"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/dimen_100_dip"
+            android:src="@drawable/icar_delect"/>
+    </RelativeLayout>
+
+</RelativeLayout>

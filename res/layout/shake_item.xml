@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_106_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip" >
+
+        <com.icar.view.RoundImageView
+            android:id="@+id/shake_item_iv"
+            android:layout_width="@dimen/dimen_64_dip"
+            android:layout_height="@dimen/dimen_64_dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/zhiyan" />
+
+        <TextView
+            android:id="@+id/shake_item_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_15_dip"
+            android:layout_marginLeft="@dimen/dimen_14_dip"
+            android:layout_toRightOf="@id/shake_item_iv"
+            android:lineSpacingMultiplier="1.35"
+            android:lines="3"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp"
+            android:ellipsize="end"
+             />
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1_dip"
+            android:background="@color/border"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 底部主菜单字体颜色 -->
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:state_enabled="true" android:state_pressed="false" android:color="@color/home_text_color" />
+    <item android:state_enabled="true" android:state_pressed="true" android:color="@color/home_text_color" />
+    <item android:state_enabled="true" android:state_checked="true" android:color="@color/home_text_color" />
+    <item android:color="#1e1c1d" />  
+</selector>

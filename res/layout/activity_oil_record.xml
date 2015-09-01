@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/head_black" />
+
+    <RelativeLayout
+        android:id="@+id/oil_record_real"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80_dip"
+        android:background="@drawable/white" >
+
+        <Button
+            android:id="@+id/add_oil_record"
+            android:layout_width="@dimen/dimen_123_dip"
+            android:layout_height="@dimen/dimen_34_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:background="@drawable/add_oil_selector"
+            android:text="@string/add_oil_recore"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_20_dip"
+            android:src="@drawable/arrow_right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_7_dip"
+            android:layout_toLeftOf="@id/tips"
+            android:text="@string/oil_recore"
+            android:textColor="@color/home_text_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/oil_recore_recently"
+            android:layout_width="@dimen/dimen_66_dip"
+            android:layout_height="@dimen/dimen_34_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_32_dip"
+            android:background="@drawable/add_oil_selector"
+            android:text="@string/oil_recore_recently"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/oil_recore_month"
+            android:layout_width="@dimen/dimen_66_dip"
+            android:layout_height="@dimen/dimen_34_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_32_dip"
+            android:background="@drawable/white_corner_selector"
+            android:text="@string/oil_recore_month"
+            android:textColor="@color/home_text_color"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/oil_recore_year"
+            android:layout_width="@dimen/dimen_66_dip"
+            android:layout_height="@dimen/dimen_34_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_32_dip"
+            android:background="@drawable/white_corner_selector"
+            android:text="@string/oil_recore_year"
+            android:textColor="@color/home_text_color"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_65_dip"
+        android:layout_marginTop="@dimen/dimen_20_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginTop="@dimen/dimen_26_dip"
+            android:text="升/百公里"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tips_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" />
+
+        <View
+            android:id="@+id/tips1"
+            android:layout_width="@dimen/dimen_19_dip"
+            android:layout_height="@dimen/dimen_19_dip"
+            android:layout_marginLeft="@dimen/dimen_63_dip"
+            android:layout_marginTop="@dimen/dimen_6_dip"
+            android:layout_toRightOf="@id/tips_center"
+            android:background="@drawable/record_shape" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_13_dip"
+            android:layout_marginTop="@dimen/dimen_4_dip"
+            android:layout_toRightOf="@id/tips1"
+            android:text="@string/oil_my"
+            android:textSize="12sp" 
+            android:textColor="@color/need_666" />
+
+        <View
+            android:id="@+id/tips2"
+            android:layout_width="@dimen/dimen_19_dip"
+            android:layout_height="@dimen/dimen_19_dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_6_dip"
+            android:layout_marginLeft="@dimen/dimen_63_dip"
+            android:layout_toRightOf="@id/tips_center"
+            android:background="@drawable/record_shape1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tips2"
+            android:layout_marginLeft="@dimen/dimen_13_dip"
+            android:layout_toRightOf="@id/tips2"
+            android:text="@string/oil_offic"
+            android:textSize="12sp" 
+            android:textColor="@color/need_666" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/oil_record_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_236_dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_23_dip"
+        android:gravity="center" >
+
+        <View
+            android:id="@+id/v_dot0"
+            style="@style/dot_style"
+            android:background="@drawable/dot_focused" />
+
+        <View
+            android:id="@+id/v_dot1"
+            style="@style/dot_style" />
+
+        <View
+            android:id="@+id/v_dot2"
+            style="@style/dot_style" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5_dip"
+        android:layout_marginTop="@dimen/dimen_25_dip"
+        android:background="@color/border" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_168_dip"
+        android:layout_marginLeft="@dimen/dimen_33_dip"
+        android:layout_marginRight="@dimen/dimen_33_dip"
+        android:layout_marginTop="@dimen/dimen_40_dip"
+        android:background="@drawable/oil_record_linear"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_distance"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/oil_distance_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="@dimen/dimen_30_dip"
+                    android:text="13456公里"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dimen_0.5_dip"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_sum"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/oil_sum_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="@dimen/dimen_30_dip"
+                    android:text="171升"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dimen_0.5_dip"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_money"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/oil_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="@dimen/dimen_30_dip"
+                    android:text="1506元"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_recently"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/oil_recently_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="@dimen/dimen_30_dip"
+                    android:text="11.23升"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dimen_0.5_dip"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_avg"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView 
+                    android:id="@+id/tips4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    />
+                
+                <TextView
+                    android:id="@+id/oil_avg_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/tips4"
+                    android:layout_marginTop="@dimen/dimen_4_dip"
+                    android:background="@drawable/oil_shape2"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:text="11.36升"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="@dimen/dimen_0.5_dip"
+                android:layout_height="match_parent"
+                android:background="@color/border" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="@dimen/dimen_30_dip"
+                    android:text="@string/oil_avg_money"
+                    android:textColor="@color/search_text_color"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/oil_avg_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="@dimen/dimen_30_dip"
+                    android:text="0.97元/公里"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

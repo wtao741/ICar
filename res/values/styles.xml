@@ -1,0 +1,101 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- 底部导航radiobutton的样式 -->
+    <style name="home_tab_bottom">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/dimen_10_dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/tab_textcolor_bottom</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">#e8e8e9</item>
+    </style>
+
+    <!-- 车震指数radiobutton的样式 -->
+    <style name="car_shake_bottom">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/dimen_22_dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_96_dip</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/car_shake_radiobutton</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/car_shake_real</item>
+    </style>
+
+    <style name="loading_small" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:layout_width">21dip</item>
+        <item name="android:layout_height">21dip</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!-- 轮播图底部圆点的样式 -->
+    <style name="dot_style">
+        <item name="android:layout_width">@dimen/dimen_9_dip</item>
+        <item name="android:layout_height">@dimen/dimen_9_dip</item>
+        <item name="android:background">@drawable/dot_normal</item>
+        <item name="android:layout_marginLeft">1.5dip</item>
+        <item name="android:layout_marginRight">1.5dip</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+
+　　                        <item name="android:windowFrame">@null</item>
+ <!-- 边框 -->
+  
+　　                        <item name="android:windowIsFloating">true</item>
+ <!-- 是否浮现在activity之上 -->
+  
+　　                        <item name="android:windowIsTranslucent">false</item>
+ <!-- 半透明 -->
+  
+　　                        <item name="android:windowNoTitle">true</item>
+ <!-- 无标题 -->
+  
+　　                        <item name="android:background">@drawable/dialog_bgm</item>
+ 
+　　                        <item name="android:windowBackground">@drawable/dialog_bgm</item>
+ <!-- 背景透明 -->
+ 
+　　                        <item name="android:backgroundDimEnabled">true</item>
+        <!-- false背景色是亮的,true背景色是暗的 -->
+    </style>
+
+    <style name="collect_Check_Box" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/collect_checkbox_selector</item>
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+     <!-- 辅助色（二级以下栏目顶部背景）/tab 背景色 -->
+    <style name="assistSecondTitleBackColor" parent="android:Theme">
+        <item name="android:background">#f7f7f7</item>
+    </style>
+    
+    <style name="bottom_popwindow" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/viewin</item>
+        <item name="@android:windowExitAnimation">@anim/viewout</item>
+    </style>
+</resources>

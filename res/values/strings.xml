@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ICar</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <!-- 首页导航 -->
+    <string name="tab_home">首页</string>
+    <string name="tab_official">官方手册</string>
+    <string name="tab_drive">行车助手</string>
+    <string name="tab_brand">品牌文化</string>
+    <string name="tab_icar">ICar</string>
+    <string name="no_login">请登录</string>
+    <string name="login_user_tips">请输入手机号</string>
+    <string name="login_password_tips">密码</string>
+    <string name="login_register">注册</string>
+    <string name="login_login">登录</string>
+    <string name="login_return_pass">忘记密码？</string>
+    <string name="register_auth_tips">输入验证码</string>
+    <string name="register_submit_tips">发送验证码</string>
+    <string name="register_pass_tips">输入6--20位密码</string>
+    <string name="register_other_tips">点击注册表示同意</string>
+    <string name="register_other_tips1">\"服务条款\"</string>
+    <string name="register_other_tips2">\"有车生活用户协议\"</string>
+    <string name="return_tips2">请输入您注册有车生活的手机号，我们会发送验证码到您的手机上:</string>
+    <string name="cancel">取消</string>
+    <string name="submit">确定</string>
+    <string name="submit1">提交</string>
+    <string name="call">呼叫</string>
+    <string name="add">添加</string>
+    <string name="save">保存</string>
+    <string name="userinfo_icon">头像</string>
+    <string name="userinfo_name">昵称</string>
+    <string name="userinfo_sex">性别</string>
+    <string name="userinfo_sex_tips">请选择您的性别</string>
+    <string name="userinfo_address">地区</string>
+    <string name="user_exit">退出登录</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="no_net">当前无可用的网络连接！</string>
+    <string name="net_bad">当前网络连接异常，请稍后重试！</string>
+    <string name="error">未知异常，请重试！</string>
+    <string name="no_data">没有可用的数据！</string>
+    <string name="no_permiss">对不起，您没有权限！</string>
+    <string name="msg_load_ing">卖命加载中....</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="edit">编辑</string>
+    <string name="my_setting">设置</string>
+    <string name="my_advice">意见与反馈</string>
+    <string name="my_about">关于我们</string>
+    <string name="change_bgm">换皮肤</string>
+    <string name="clear_memory">清理缓存</string>
+    <string name="shares_setting">分享设置</string>
+    <string name="comment">支持我们，去AppStore给个5星吧</string>
+    <string name="hot_search">热门搜索</string>
+    <string name="search_history">搜索历史</string>
+    <string name="no_search_history">暂无搜索历史</string>
+    <string name="home_title">有车生活</string>
+    <string name="home_search_tips">请输入您要搜索的内容</string>
+
+    <!-- home页面按钮提示 -->
+    <string name="home_bt1">内饰中控</string>
+    <string name="home_bt2">座椅空间</string>
+    <string name="home_bt3">安全行车</string>
+    <string name="home_bt4">用车养车</string>
+    <string name="home_bt5">仪表警示灯</string>
+    <string name="home_bt6">车型亮点</string>
+    <string name="home_bt7">应     急</string>
+    <string name="home_bt8">技术解密</string>
+    <string name="home_bt9">车     震</string>
+    <string name="home_bt10">隐藏功能</string>
+    <string name="home_comment">车辆满意度</string>
+    <string name="home_oil">我的耗油</string>
+    <string name="change_bgm1">炫晶黑</string>
+    <string name="change_bgm2">典雅白</string>
+    <string name="useing">使  用</string>
+    <string name="use">使用中</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_weixin1">微信朋友圈</string>
+    <string name="share_sina">新浪微博</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_qqzone">QQ空间</string>
+    <string name="add_oil_recore">新增耗油记录</string>
+    <string name="oil_recore">历史记录</string>
+    <string name="oil_recore_recently">最近</string>
+    <string name="oil_recore_month">6个月</string>
+    <string name="oil_recore_year">1年</string>
+    <string name="oil_my">本车耗油</string>
+    <string name="oil_offic">工信部耗油</string>
+    <string name="oil_distance">当前公里数</string>
+    <string name="oil_sum">累计加油量</string>
+    <string name="oil_money">累计加油金额</string>
+    <string name="oil_recently">最近耗油</string>
+    <string name="oil_avg">平均耗油</string>
+    <string name="oil_avg_money">平均油费</string>
+    <string name="shake_tips">车震指数</string>
+    <string name="shake_des">选项内的15项功能基本涵盖了市场上各种车型附加配置，配置越多，无论车震，还是驾乘都能提供更完美的感受 。该项目满分15分，少一项配置减一分。 点击查看》</string>
+    <string name="null_tips"></string>
+    <string name="car_function">功能</string>
+    <string name="car_brand">品牌</string>
+    <string name="car_comfort">舒适度</string>
+    <string name="car_space">空间</string>
+    <string name="no_collect">您还没有收藏</string>
+    <string name="all">全选</string>
+    <string name="nothing">取消全选</string>
+    <string name="delect">删除</string>
+    <string name="complete">完成</string>
+
+    <string name="about_me_address">地址:北京市朝阳区酒仙桥路甲12号电子城科技大厦401</string>
+    <string name="about_me_other">工信部网站备案     京ICP备15035710号</string>
+    <string name="about_me_name">悠有(北京)科技有限公司    版权所有</string>
+    <string name="about_me_phone">联系我们：010—64342829</string>
+    
+    <string name="add_oil_date">加油日期</string>
+    <string name="add_oil_odometer">里程表</string>
+    <string name="add_oil_money">金额</string>
+    <string name="add_oil_price">油价</string>
+    <string name="add_oil_amount">加油量</string>
+    <string name="add_oil_light">油表灯亮</string>
+    <string name="add_oil_fill">本次加满</string>
+    
+    <string name="accident_record">事故记录</string>
+    <string name="date">日期</string>
+    <string name="address">地点</string>
+    <string name="people">当事人</string>
+    <string name="accident_car">事故车损</string>
+    <string name="accident_photo"> 现场照片(0)</string>
+    <string name="mobile">联系方式</string>
+    <string name="location_tips">点击自动定位当前地点</string>
+    <string name="accident_des">添加事故描述/车损</string>
+    
+    <string name="advice_problem_tips">请输入您的宝贵意见和建议</string>
+    <string name="advice_problem_icon_tips">请提供问题截图(选填)</string>
+    <string name="advice_problem_mobile_tips">请输入您的电话号码,便于我们与您联系(选填)</string>
+    <string name="setting_password_tips">请输入验证码</string>
+    <string name="setting_password_again">重置密码</string>
+    
+    <string name="take">拍照</string>
+    <string name="photo">从手机相册中选择</string>
+    
+    <string name="location_city">当前城市</string>
+    <string name="hot_city">热门城市</string>
+    
+    <string-array name="warn_light_title">
+        <item>发送机故障</item>
+        <item>点火警示灯</item>
+        <item>未系安全带</item>
+        <item>水温报警</item>
+        <item>胎压报警</item>
+        <item>ABS报警</item>
+        <item>燃油警告灯</item>
+        <item>安全气囊</item>
+        <item>车窗清洗液</item>
+        <item>车厢稳定系统</item>
+        <item>行李箱未关</item>
+        <item>车门未关闭</item>
+        <item>刹车报警</item>
+        <item>机油报警</item>
+        <item>机油压力报警</item>
+        <item>巡航控制灯</item>
+        <item>后雾灯</item>
+        <item>前雾灯</item>
+        <item>远光灯</item>
+        <item>车辆保养提示</item>
+        <item>手刹指示灯</item>
+        <item>转向故障灯</item>
+        <item>助力故障灯</item>
+        <item>点火故障灯</item>
+        <item>限速提醒</item>
+        <item>悬架故障灯</item>
+        <item>启停系统提示</item>
+        <item>启停系统提示</item>
+        <item>灯光故障灯</item>
+        <item>油位传感故障</item>
+        <item>雨刷系统故障</item>
+        <item>动力控制故障</item>
+        <item>刹车片故障灯</item>
+        <item>大灯系统故障</item>
+        <item>自动雨刷故障</item>
+        <item>变速箱故障灯</item>
+        <item>牵引装置故障</item>
+        <item>电子系统故障</item>
+        <item>钥匙不在车内</item>
+        <item>钥匙电量不足</item>
+    </string-array>
+    
+    <string-array name="warn_light_answer">
+        <item>缓慢降低车速，切记急加油、急刹车，同时检查其他故障灯有无亮起，水温是否正常，接下来停车检查，如无异常则继续慢速行驶至专业维修站检查</item>
+        <item>关闭车内不必要的电子设备，及时对蓄电池进行充电</item>
+        <item>前排乘员系上安全带即可，行车时车内乘员务必系上安全带（包含后排乘员）</item>
+        <item>立刻关闭发动机等待发动机冷却，同时检查机舱内防冻液存储罐液面，如液面正常，同时再次着车故障灯熄灭则可继续行驶，如果防冻液泄漏则需到专业维修站检查</item>
+        <item>检查车载显示屏提示的胎压过低轮胎，如存在漏气则需更换备胎</item>
+        <item>谨慎慢速驾驶至专业维修站进行检查</item>
+        <item>尽快到最近的加油站加油</item>
+        <item>尽快到专业维修站进行检查维修</item>
+        <item>及时加注玻璃水</item>
+        <item>极端驾驶情况下指示灯会亮，之后自动熄灭，如一直常亮需尽快到专业维修站维修</item>
+        <item>将后行李箱盖完全关闭即可</item>
+        <item>将未关好的车门关闭即可</item>
+        <item>首先检查手刹是否彻底松开，如松开指示灯未熄灭则需到专业维修站检查制动系统</item>
+        <item>检查机油液面，如液面低需要加注机油，同时到专业维修站检查是否有机油渗漏情况</item>
+        <item>立刻靠边停车，检查机油液面，如液面低需要加注机油，同时到专业维修站检查是否有机油渗漏情况</item>
+        <item>这是正常的提示，巡航系统关闭，指示灯就会熄灭</item>
+        <item>这是正常的提示，后雾灯关闭，指示灯就会熄灭</item>
+        <item>这是正常的提示，前雾灯关闭，指示灯就会熄灭</item>
+        <item>这是正常的提示，远光灯关闭，指示灯就会熄灭</item>
+        <item>及时到专业维修站进行常规保养</item>
+        <item>松开手刹，指示灯熄灭</item>
+        <item>电子转向锁止系统有故障存在，不要继续行驶，因为汽车无法转向也不允许牵引本车，有事故危险，应尽快联系专业维修站</item>
+        <item>减速慢行，尽快开到专业维修站维修或拨打电话救援</item>
+        <item>千万不要关闭发动机，点火开关已经损坏关闭发动机将无法再着车，尽快开到专业维修站维修</item>
+        <item>降低车速到限速以下</item>
+        <item>以 60 km/h 以下速度行驶去专业维修站排除故障</item>
+        <item>手动挡踩下离合器/自动挡抬起刹车踏板发动机即启动</item>
+        <item>当满足特定条件时即会启动，比如空调达到设置温、正常平稳驾驶等</item>
+        <item>及时更换损坏的灯泡</item>
+        <item>请将车辆开到专业维修站排除故障。在到达之前，请隔一定距离检查一次机油油位</item>
+        <item>尽快到专业维修站检查雨刮器</item>
+        <item>降低车速，尽快到专业维修站检查</item>
+        <item>尽快到专业维修站检查</item>
+        <item>虽然不影响正常行驶，但需尽快到专业维修站检查</item>
+        <item>尽快到专业维修站检查</item>
+        <item>当指示灯点亮时应该尽快靠边停车，怠速状态等待变速箱冷却，如果灯灭应尽快开到专业维修站检查，灯未能熄灭则原定等待救援</item>
+        <item>拖车牵引装置在开出和缩回时没有正确卡止，正确卡止就可解决问题</item>
+        <item>发动机转速被降低到驾驶员信息系统中的显示转速，降档时转速不要超过显示转速，并立即驶到专业维修站排除故障</item>
+        <item>如果无线遥控钥匙已不在汽车中，那么关闭发动机后将无法启动发动机，所以一定要确认钥匙位置</item>
+        <item>及时更换遥控钥匙电池，确保备用电池与原钥匙电池型号一致</item>
+    </string-array>
+    
+     <string-array name="warn_light_des">
+        <item>指示灯点亮说明发动机存在故障，尾气排放不稳定或尾气质量超标</item>
+        <item>黄色灯常亮，表示蓄电池电压低，再次启动时有无法着车的危险</item>
+        <item>黄色灯光闪烁，表示前排乘员没有系安全带</item>
+        <item>指示灯点亮，发动机冷却液温度过高或液位过低</item>
+        <item>指示灯点亮，轮胎气压过低</item>
+        <item>ABS系统存在故障指示灯点亮，此时有车轮抱死风险</item>
+        <item>指示灯点亮，油量过低提示</item>
+        <item>安全气囊存在故障，有气囊失灵及突然弹出风险</item>
+        <item>玻璃水液面过低</item>
+        <item>黄色灯闪烁时表明车身稳定系统在工作，黄色灯常亮说明车身稳定控制系统存在故障</item>
+        <item>后行李箱盖未关提示</item>
+        <item>车门未关好提示</item>
+        <item>指示灯点亮，手刹未彻底放下或制动系统存故障</item>
+        <item>机油液位过低</item>
+        <item>机油压力异常时指示灯点亮</item>
+        <item>巡航系统开启，指示灯点亮</item>
+        <item>后雾灯开启时，指示灯点亮</item>
+        <item>前雾灯开启时，指示灯点亮</item>
+        <item>远光灯开启时，指示灯点亮</item>
+        <item>车辆保养提示，指示灯点亮</item>
+        <item>指示灯点亮，手刹或电子手刹被拉紧处于工作状态</item>
+        <item>转向锁止系统存在故障，指示灯点亮</item>
+        <item>转向助力系统故障，指示灯点亮</item>
+        <item>点火开关故障，指示灯点亮</item>
+        <item>当行驶车速超过设定的最高车速时，限速警告指示灯点亮</item>
+        <item>空气悬架系统故障指示灯点亮</item>
+        <item>智能启动/停止系统开启时，指示灯点亮表示发动机被临时关闭</item>
+        <item>智能启动/停止系统开启时，因未达到特定条件发动机不关闭</item>
+        <item>当灯光系统有灯泡损坏时指示灯亮起</item>
+        <item>发动机机油液位传感器失灵指示灯亮起</item>
+        <item>雨刮器系统出现故障指示灯点亮</item>
+        <item>发动机控制系统出现故障指示灯点亮</item>
+        <item>刹车片过渡磨损指示灯点亮</item>
+        <item>自适应大灯系统出现故障指示灯点亮</item>
+        <item>自动车灯/自动雨刮系统出现故障指示灯点亮</item>
+        <item>变速箱过热或损坏则指示灯点亮</item>
+        <item>拖车牵引装置存问题指示灯点亮</item>
+        <item>发动机功率电子控制系统有故障，组合仪表中的EPC指示灯同时亮起</item>
+        <item>指示灯点亮时表示钥匙不在车内</item>
+        <item>遥控钥匙电量不足，指示灯点亮</item>
+    </string-array>
+    
+    <string-array name="drive_str">
+        <item>事故记录</item>
+        <item>油耗记录</item>
+        <item>车辆使用满意度</item>
+        <item>事故判责</item>
+        <item>事故处理流程</item>
+        <item>保险理赔</item>
+        <item>救援电话</item>
+        <item>官方客服</item>
+    </string-array>
+
+</resources>

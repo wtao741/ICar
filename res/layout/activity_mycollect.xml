@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm" >
+
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawablePadding="@dimen/dimen_12_dip"
+        android:drawableTop="@drawable/my_collect"
+        android:text="@string/no_collect" />
+
+    <ListView
+        android:id="@+id/my_collect_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/white"
+        android:dividerHeight="0dp"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/dimen_64_dip" />
+
+    <LinearLayout
+        android:id="@+id/my_collect_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64_dip"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        >
+        
+        <TextView 
+            android:id="@+id/all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/all"
+            android:gravity="center"
+            android:textColor="@color/need_666"
+            android:background="@drawable/white"
+            />
+        
+        <TextView 
+            android:layout_width="@dimen/dimen_1_dip"
+            android:layout_height="match_parent"
+            android:background="@color/border"
+            />
+        
+        <TextView 
+            android:id="@+id/delect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/delect"
+            android:gravity="center"
+            android:textColor="@color/need_666"
+            android:background="@color/white"
+            />
+    </LinearLayout>
+</FrameLayout>

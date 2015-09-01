@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_123_dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/resuce_item_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="针对米其林"
+            android:textSize="13sp" 
+            android:textColor="@color/need_666"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_20_dip"
+            android:src="@drawable/resuce_call" />
+
+        <TextView
+            android:id="@+id/resuce_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/resuce_item_des"
+            android:layout_alignLeft="@+id/resuce_item_des"
+            android:layout_marginBottom="@dimen/dimen_10_dip"
+            android:text="米其林"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/resuce_item_phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/resuce_item_des"
+            android:layout_below="@+id/resuce_item_des"
+            android:layout_marginTop="@dimen/dimen_15_dip"
+            android:text="0877-1234567"
+            android:textSize="11sp"
+            android:textColor="@color/home_title_bgm" />
+    </RelativeLayout>
+
+</LinearLayout>

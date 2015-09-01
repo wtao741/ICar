@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" 
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="2dp">
+
+        <ImageView
+            android:id="@+id/warn_light_dialog_icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_217_dip"
+            android:layout_marginLeft="@dimen/dimen_57_dip"
+            android:layout_marginRight="@dimen/dimen_57_dip"
+            android:layout_marginTop="@dimen/dimen_44_dip"
+            android:src="@drawable/engine_failure"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/warn_light_dialog_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warn_light_dialog_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_23_dip"
+            android:text="永动机"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/warn_light_dialog_name_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warn_light_dialog_name"
+            android:layout_marginLeft="@dimen/dimen_36_dip"
+            android:layout_marginRight="@dimen/dimen_47_dip"
+            android:layout_marginTop="@dimen/dimen_31_dip"
+            android:text="发动机存在故障，尾气排放不稳定或质量超标"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/warn_light_dialog_respone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warn_light_dialog_name_des"
+            android:layout_marginLeft="@dimen/dimen_36_dip"
+            android:layout_marginTop="@dimen/dimen_76_dip"
+            android:text="应对方法"
+            android:textColor="@color/home_text_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/warn_light_dialog_respone_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warn_light_dialog_respone"
+            android:layout_marginLeft="@dimen/dimen_36_dip"
+            android:layout_marginTop="@dimen/dimen_24_dip"
+            android:layout_marginRight="@dimen/dimen_47_dip"
+            android:text="缓慢降低车速，停车检查，如能继续行驶，尽快到维修站检查"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_57_dip"
+            android:layout_below="@id/warn_light_dialog_respone_des" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/warn_light_delect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/warn_light_delect" />
+
+</RelativeLayout>

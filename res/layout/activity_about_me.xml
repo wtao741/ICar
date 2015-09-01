@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm" >
+    
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/about_me_icon"
+        android:layout_marginTop="@dimen/dimen_117_dip"
+        />
+    
+    <TextView 
+        android:id="@+id/about_me_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_36_dip"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about_me_address"
+        android:textColor="@color/need_333"
+        android:textSize="12sp"
+        />
+    
+    <TextView 
+        android:id="@+id/about_me_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/about_me_address"
+        android:layout_marginBottom="@dimen/dimen_11_dip"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about_me_other"
+        android:textColor="@color/need_333"
+        android:textSize="12sp"
+        />
+    
+    <TextView 
+        android:id="@+id/about_me_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/about_me_other"
+        android:layout_marginBottom="@dimen/dimen_11_dip"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about_me_name"
+        android:textColor="@color/need_333"
+        android:textSize="12sp"
+        />
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/about_me_name"
+        android:layout_marginBottom="@dimen/dimen_11_dip"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about_me_phone"
+        android:textColor="@color/need_333"
+        android:textSize="12sp"
+        />
+</RelativeLayout>

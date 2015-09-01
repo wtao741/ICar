@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64_dip"
+        android:background="@color/home_title_bgm" >
+
+        <LinearLayout
+            android:id="@+id/head_left"
+            android:layout_width="@dimen/dimen_50_dip"
+            android:layout_height="match_parent"
+            android:background="@drawable/head_left_selector"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_left" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/home_title"
+            android:textColor="@color/home_title_textcolor"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/home_car_type"
+            android:layout_width="@dimen/dimen_30_dip"
+            android:layout_height="@dimen/dimen_30_dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_28_dip"
+            android:layout_marginTop="@dimen/dimen_8_dip"
+            android:background="@drawable/white_corner"
+            android:src="@drawable/zhiyan" />
+
+        <TextView
+            android:id="@+id/home_my_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/home_car_type"
+            android:layout_marginRight="@dimen/dimen_18_dip"
+            android:gravity="center"
+            android:paddingTop="@dimen/dimen_4_dip"
+            android:text="昂科赛思"
+            android:textColor="@color/white"
+            android:textSize="9sp" />
+    </RelativeLayout>
+
+</LinearLayout>

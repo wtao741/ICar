@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bgm"
+     >
+    
+    <TextView 
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginTop="@dimen/dimen_22_dip"
+        android:text="油耗水平"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="13sp"
+        />
+    
+    <TextView 
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:layout_marginTop="@dimen/dimen_22_dip"
+        android:layout_alignParentRight="true"
+        android:text="5"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="14sp"
+        />
+    
+    <SeekBar 
+        android:id="@+id/seekbar"
+        android:layout_width="@dimen/dimen_260_dip"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/score"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:layout_marginRight="@dimen/dimen_24_dip"
+        android:max="100"
+        android:progress="20"
+         android:progressDrawable="@drawable/bg_seekbar"  
+        android:thumb="@drawable/thumb_bar"
+        />
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5_dip"
+        android:background="@color/border" />
+
+    <TextView
+        android:id="@+id/catalog"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:background="#E8E8E8"
+        android:paddingBottom="5dip"
+        android:paddingLeft="@dimen/dimen_22_dip"
+        android:paddingTop="5dip"
+        android:text="A"
+        android:textColor="#0072bb"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5_dip"
+        android:background="@color/border" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:text="hhhh"
+            android:textColor="#4c4c4c"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:background="@color/border" />
+    </LinearLayout>
+
+</LinearLayout>

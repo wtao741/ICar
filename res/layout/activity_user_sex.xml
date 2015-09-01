@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/real_sex_man"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_67_dip"
+        android:layout_marginTop="@dimen/dimen_27_dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:gravity="center_vertical"
+            android:text="@string/man"
+            android:textColor="@color/home_title_bgm" />
+
+        <ImageView
+            android:id="@+id/sex_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:src="@drawable/sex" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/real_sex_women"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_67_dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:gravity="center_vertical"
+            android:text="@string/women"
+            android:textColor="@color/home_title_bgm" />
+
+        <ImageView
+            android:id="@+id/sex_women"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:src="@drawable/sex"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

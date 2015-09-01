@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bgm" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="@dimen/dimen_58_dip"
+        android:layout_marginTop="@dimen/dimen_29_dip"
+        android:background="@color/white"
+        >
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border"
+            android:layout_alignParentTop="true"/>
+        
+        <TextView 
+            android:id="@+id/location_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/location_city"
+            android:textColor="#c1c1c1"
+            />
+        
+         <ImageView 
+             android:id="@+id/location_tips1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/location"
+             android:layout_marginLeft="@dimen/dimen_18_dip"
+             android:layout_toRightOf="@id/location_tips"
+             android:layout_centerVertical="true"
+             />
+         
+         <TextView 
+             android:id="@+id/city_address"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="背景"
+             android:layout_centerVertical="true"
+             android:layout_toRightOf="@id/location_tips1"
+             android:layout_marginLeft="@dimen/dimen_15_dip"
+             />
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border"
+            android:layout_alignParentBottom="true"/>
+        
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_33_dip"
+        android:background="@color/bgm"
+        android:text="@string/hot_city"
+        android:paddingLeft="@dimen/dimen_22_dip"
+        android:textSize="13sp"
+        android:gravity="center_vertical"
+        />
+    <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border"
+            android:layout_alignParentBottom="true"/>
+    <ListView 
+        android:id="@+id/hot_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:dividerHeight="0dp"
+        ></ListView>
+</LinearLayout>

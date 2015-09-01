@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_44_dip"
+    android:background="@drawable/white"
+        >
+        
+        <View
+            android:id="@+id/official_item_dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/official_corner1"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_29_dip"
+            ></View>
+        
+        <TextView 
+            android:id="@+id/official_item1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:layout_centerVertical="true"
+            android:text="仪表和控制仪"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/official_item_dot"
+            />
+        
+        <TextView 
+            android:id="@+id/official_item1_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:layout_centerVertical="true"
+            android:text="15"
+            />
+    </RelativeLayout>
+    
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <GridView
+        android:id="@+id/warn_light_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_18_dip"
+        android:layout_marginTop="@dimen/dimen_22_dip"
+        android:listSelector="@drawable/white"
+        android:numColumns="4"
+        android:verticalSpacing="@dimen/dimen_24_dip" >
+    </GridView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+</LinearLayout>

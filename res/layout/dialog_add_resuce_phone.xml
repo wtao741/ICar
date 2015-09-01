@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dimen_320_dip"
+    android:layout_height="@dimen/dimen_129_dip"
+    android:background="@drawable/dialog_bgm"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_79_dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dialog_call_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="添加救援电话"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="@dimen/dimen_0.5_dip"
+            android:layout_height="match_parent"
+            android:background="@color/border" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/resuce_add_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="名称"
+                android:textColor="@color/home_title_bgm"
+                android:textColorHint="@color/need_666"
+                android:paddingLeft="@dimen/dimen_16_dip"
+                android:textSize="12sp" 
+                android:singleLine="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0.5_dip"
+                android:background="@color/border" />
+
+            <EditText
+                android:id="@+id/resuce_add_phone"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="电话"
+                 android:textColor="@color/home_title_bgm"
+                android:textColorHint="@color/need_666"
+                android:paddingLeft="@dimen/dimen_16_dip"
+                android:textSize="12sp"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="@dimen/dimen_320_dip"
+        android:layout_height="0.5dp"
+        android:background="@color/border" />
+
+    <LinearLayout
+        android:layout_width="@dimen/dimen_320_dip"
+        android:layout_height="@dimen/dimen_50_dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_selector"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/home_text_color" />
+
+        <TextView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/dialog_submit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_selector"
+            android:gravity="center"
+            android:text="@string/add"
+            android:textColor="@color/home_text_color" />
+    </LinearLayout>
+
+</LinearLayout>

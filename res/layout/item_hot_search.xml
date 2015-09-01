@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/hot_search_bt"
+        android:layout_width="@dimen/dimen_121_dip"
+        android:layout_height="@dimen/dimen_39_dip"
+        android:layout_marginLeft="@dimen/dimen_20_dip"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:background="@drawable/white_corner_selector"
+        android:text="官方说明书"
+        android:textColor="@color/search_text_color" 
+        android:textSize="13sp"/>
+
+</LinearLayout>

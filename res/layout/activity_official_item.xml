@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/bgm">
+    
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_64_dip"
+    android:background="@color/home_title_bgm" >
+
+    <LinearLayout
+        android:id="@+id/head_left"
+        android:layout_width="@dimen/dimen_50_dip"
+        android:layout_height="match_parent"
+        android:background="@drawable/head_left_selector"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="nihao"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/head_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimen_20_dip"
+        android:background="@null"
+        android:text="nihao" />
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/hint"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        />
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimen_76_dip"
+        android:text="为获得完美的体验，请横屏浏览"
+        android:textColor="#293296"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_63_dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        >
+        
+        <ImageView 
+            android:id="@+id/official_item_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:src="@drawable/official_item_left_arrow"/>
+        
+        <TextView
+            android:id="@+id/return_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回目录"
+            android:textColor="@color/search_text_color"
+            android:textSize="11sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_23_dip"
+            />
+        
+         <ImageView 
+            android:id="@+id/official_item_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/return_menu"
+            android:layout_marginRight="@dimen/dimen_8_dip"
+            android:src="@drawable/menu"/>
+         
+          
+        <ImageView 
+            android:id="@+id/official_item_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/official_item_menu"
+            android:layout_marginRight="@dimen/dimen_60_dip"
+            android:src="@drawable/official_collect"/>
+        
+        <RelativeLayout 
+            android:id="@+id/real"
+            android:layout_width="@dimen/dimen_126_dip"
+            android:layout_height="@dimen/dimen_32_dip"
+            android:background="@color/color_ccc"
+            android:layout_toRightOf="@id/official_item_left_arrow"
+            android:layout_marginLeft="@dimen/dimen_15_dip"
+            android:layout_centerVertical="true"
+            >
+            
+            <EditText 
+                android:id="@+id/official_current"
+                android:layout_width="@dimen/dimen_42_dip"
+                android:layout_height="@dimen/dimen_21_dip"
+                android:layout_marginLeft="@dimen/dimen_15_dip"
+                android:layout_centerVertical="true"
+                android:text="225"
+                android:gravity="center"
+                android:textColor="#293296"
+                android:textSize="12sp"
+                android:background="@drawable/official_item_edittext"
+                />
+            
+            <TextView 
+                android:id="@+id/official_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dimen_15_dip"
+                android:text=" /  227"
+                android:textColor="@color/search_text_color"
+                android:textSize="12sp"
+                />
+        </RelativeLayout>
+        
+         <ImageView 
+            android:id="@+id/official_item_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_11_dip"
+            android:layout_toRightOf="@id/real"
+            android:src="@drawable/official_item_right_arrow"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_61_dip"
+        android:layout_marginTop="@dimen/dimen_21_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/mycollect_iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24_dip"
+            android:layout_toRightOf="@id/mycollect_iv_tips"
+            android:text="@string/share_weixin" />
+
+        <com.icar.view.UISwitchButton
+            xmlns:switch="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/share_weixin"
+            android:layout_width="48dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            switch:bmHeight="50dp"
+            switch:bmWidth="50dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_61_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/mysetting_iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24_dip"
+            android:layout_toRightOf="@id/mysetting_iv_tips"
+            android:text="@string/share_weixin1" />
+
+        <com.icar.view.UISwitchButton
+            xmlns:switch="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/share_pengyouquan"
+            android:layout_width="48dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            switch:bmHeight="50dp"
+            switch:bmWidth="50dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_61_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/myadvie_iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24_dip"
+            android:layout_toRightOf="@id/myadvie_iv_tips"
+            android:text="@string/share_sina" />
+
+        <com.icar.view.UISwitchButton
+            xmlns:switch="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/share_sina"
+            android:layout_width="48dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            switch:bmHeight="50dp"
+            switch:bmWidth="50dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/icar_real_myabout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_61_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/myabout_iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24_dip"
+            android:layout_toRightOf="@id/myabout_iv_tips"
+            android:text="@string/share_qq" />
+
+        <com.icar.view.UISwitchButton
+            xmlns:switch="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/share_qq"
+            android:layout_width="48dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            switch:bmHeight="50dp"
+            switch:bmWidth="50dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_61_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <ImageView
+            android:id="@+id/qqzone_iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_24_dip"
+            android:layout_toRightOf="@id/qqzone_iv_tips"
+            android:text="@string/share_qqzone" />
+
+       <com.icar.view.UISwitchButton
+            xmlns:switch="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/share_qqzone"
+            android:layout_width="48dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            switch:bmHeight="50dp"
+            switch:bmWidth="50dp" />
+    </RelativeLayout>
+
+</LinearLayout>

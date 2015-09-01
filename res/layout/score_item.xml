@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_31_dip"
+        android:background="@color/bgm"
+        >
+    
+    <TextView 
+        android:id="@+id/score_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="hello"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="13sp"
+        />
+    
+    <TextView 
+        android:id="@+id/score_item_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:text="12分"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="13sp"
+        />
+        </RelativeLayout>
+</RelativeLayout>

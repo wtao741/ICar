@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.icar.view.MyScrollView
+        android:id="@+id/shake_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_122_dip" >
+
+                <RelativeLayout
+                    android:id="@+id/rela_tips"
+                    android:layout_width="@dimen/dimen_72_dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_22_dip"
+                    android:layout_marginRight="@dimen/dimen_22_dip"
+                    android:layout_marginTop="@dimen/dimen_22_dip" >
+
+                    <TextView
+                        android:id="@+id/shake_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/shake"
+                        android:gravity="center"
+                        android:text="79"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="@string/shake_tips"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/shake_des"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_22_dip"
+                    android:layout_marginRight="@dimen/dimen_22_dip"
+                    android:layout_marginTop="@dimen/dimen_22_dip"
+                    android:layout_toRightOf="@id/rela_tips"
+                    android:lineSpacingMultiplier="1.35"
+                    android:text="@string/shake_des"
+                    android:textColor="@color/home_title_bgm"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_289_dip"
+                android:layout_marginLeft="@dimen/dimen_22_dip"
+                android:layout_marginRight="@dimen/dimen_22_dip"
+                android:layout_marginTop="@dimen/dimen_30_dip" >
+
+                <ImageView
+                    android:id="@+id/shake_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/car1" />
+
+                <TextView
+                    android:id="@+id/shake_icon_tv"
+                    android:layout_width="@dimen/dimen_65_dip"
+                    android:layout_height="@dimen/dimen_37_dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/shake_selector"
+                    android:gravity="center"
+                    android:text="图集"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/shake_video"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_289_dip"
+                android:layout_marginLeft="@dimen/dimen_22_dip"
+                android:layout_marginRight="@dimen/dimen_22_dip"
+                android:layout_marginTop="@dimen/dimen_30_dip"
+                android:background="@drawable/car2" >
+
+                <ImageView
+                    android:id="@+id/shake_video_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/player" />
+            </RelativeLayout>
+
+            <com.icar.view.MyListView
+                android:id="@+id/shake_listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_22_dip"
+                android:layout_marginTop="@dimen/dimen_9_dip"
+                android:divider="@color/white"
+                android:dividerHeight="0dp"
+                android:listSelector="@drawable/white" />
+        </LinearLayout>
+    </com.icar.view.MyScrollView>
+
+</LinearLayout>

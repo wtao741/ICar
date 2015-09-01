@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/real_change_bgm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64_dip"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/border" />
+
+       
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_19_dip"
+            android:text="@string/change_bgm1" />
+
+        <Button
+            android:id="@+id/bt_change_bgm"
+            android:layout_width="@dimen/dimen_60_dip"
+            android:layout_height="@dimen/dimen_25_dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_19_dip"
+            android:text="@string/useing"
+            android:background="@null"
+            android:textSize="12sp" 
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/real_change_bgm1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64_dip"
+        android:background="@drawable/white" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/dimen_19_dip"
+            android:background="@color/border" />
+
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+         
+       
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_19_dip"
+            android:text="@string/change_bgm2" />
+
+        <Button
+             android:id="@+id/bt_change_bgm1"
+            android:layout_width="@dimen/dimen_60_dip"
+            android:layout_height="@dimen/dimen_25_dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_19_dip"
+            android:gravity="center"
+            android:background="@drawable/change_bgm_selector" 
+            android:text="@string/use"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+</LinearLayout>

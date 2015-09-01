@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/icar_userinfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_103_dip"
+                android:layout_marginTop="@dimen/dimen_19_dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/border" />
+
+                <com.icar.view.RoundImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="@dimen/dimen_67_dip"
+                    android:layout_height="@dimen/dimen_67_dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_19_dip"
+                    android:background="@drawable/userinfo_bgm"
+                    android:scaleType="center"
+                    android:src="@drawable/userinfo" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/user_icon"
+                    android:layout_marginLeft="@dimen/dimen_17_dip"
+                    android:layout_toRightOf="@id/user_icon"
+                    android:text="@string/no_login"
+                    android:textSize="14sp"
+                    android:textColor="@color/home_title_bgm" />
+
+                <TextView
+                    android:id="@+id/user_type_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_name"
+                    android:layout_marginLeft="@dimen/dimen_17_dip"
+                    android:layout_marginTop="@dimen/dimen_7_dip"
+                    android:layout_toRightOf="@id/user_icon"
+                    android:text="当前关注车型:"
+                    android:textSize="14sp"
+                    android:textColor="@color/home_title_bgm" />
+
+                <TextView
+                    android:id="@+id/user_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_name"
+                    android:layout_marginLeft="@dimen/dimen_5_dip"
+                    android:layout_marginTop="@dimen/dimen_7_dip"
+                    android:layout_toRightOf="@id/user_type_tips"
+                    android:textSize="14sp"
+                    android:textColor="@color/home_text_color" />
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:src="@drawable/arrow_right" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/border" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_189_dip"
+                android:layout_marginTop="@dimen/dimen_21_dip"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/border" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/border" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_19_dip"
+                    android:layout_marginTop="@dimen/dimen_22_dip"
+                    android:text="我关注的车"
+                     android:textColor="@color/home_title_bgm"
+                     android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/icar_iv_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:layout_marginTop="@dimen/dimen_25_dip"
+                    android:src="@drawable/change" />
+
+                <TextView
+                    android:id="@+id/icar_tv_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_9_dip"
+                    android:layout_marginTop="@dimen/dimen_22_dip"
+                    android:layout_toLeftOf="@id/icar_iv_update"
+                    android:text="编辑"
+                    android:textSize="12sp" />
+                
+                <com.icar.view.HorizontalListView 
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dimen_20_dip"
+                    android:layout_below="@id/icar_iv_update"
+                    
+                    ></com.icar.view.HorizontalListView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/icar_real_mycollect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_61_dip"
+                android:layout_marginTop="@dimen/dimen_21_dip"
+                android:background="@drawable/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/border" />
+
+                <ImageView
+                    android:id="@+id/mycollect_iv_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:src="@drawable/my_collect" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_23_dip"
+                    android:layout_toRightOf="@id/mycollect_iv_tips"
+                    android:text="@string/my_collect"
+                    android:textColor="@color/home_title_bgm"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:src="@drawable/arrow_right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/icar_real_mysetting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_61_dip"
+                android:background="@drawable/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:background="@color/border" />
+
+                <ImageView
+                    android:id="@+id/mysetting_iv_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:src="@drawable/seting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_24_dip"
+                    android:layout_toRightOf="@id/mysetting_iv_tips"
+                    android:text="@string/my_setting"
+                    android:textColor="@color/home_title_bgm"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:src="@drawable/arrow_right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/icar_real_myadvice"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_61_dip"
+                android:background="@drawable/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:background="@color/border" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/border" />
+
+                <ImageView
+                    android:id="@+id/myadvie_iv_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:src="@drawable/advice" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_24_dip"
+                    android:layout_toRightOf="@id/myadvie_iv_tips"
+                    android:text="@string/my_advice"
+                    android:textColor="@color/home_title_bgm"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:src="@drawable/arrow_right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/icar_real_myabout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_61_dip"
+                android:layout_marginTop="@dimen/dimen_21_dip"
+                android:background="@drawable/white" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/border" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0.5_dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/border" />
+
+                <ImageView
+                    android:id="@+id/myabout_iv_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_20_dip"
+                    android:src="@drawable/about_me" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_24_dip"
+                    android:layout_toRightOf="@id/myabout_iv_tips"
+                    android:text="@string/my_about" 
+                    android:textColor="@color/home_title_bgm"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_20_dip"
+                    android:src="@drawable/arrow_right" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

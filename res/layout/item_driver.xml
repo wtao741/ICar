@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_87_dip"
+    android:background="@drawable/rela_selector" >
+    
+    <ImageView 
+        android:id="@+id/drive_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:paddingLeft="0dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_launcher"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        />
+    
+    <TextView 
+        android:id="@+id/drive_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/drive_iv"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_centerVertical="true"
+        android:text="hello"
+        android:textColor="@color/home_text_color"
+        android:textSize="14sp"
+        />
+    
+     <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:src="@drawable/arrow_right"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>

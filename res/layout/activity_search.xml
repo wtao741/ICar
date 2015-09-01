@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgm"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_62_dip"
+        android:background="@color/home_title_bgm" >
+
+        <Button
+            android:id="@+id/search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="@color/white" 
+            android:textSize="11sp"/>
+
+        <com.icar.view.ClearEditText
+            android:id="@+id/search_et"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_31_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginRight="@dimen/dimen_17_dip"
+            android:layout_toLeftOf="@id/search_cancel"
+            android:background="@drawable/edittext_corner"
+            android:drawableLeft="@drawable/search_icon"
+            android:paddingLeft="@dimen/dimen_13_dip"
+            android:drawablePadding="@dimen/dimen_13_dip"
+            android:textSize="12sp" 
+            android:imeOptions="actionSearch"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50_dip"
+        android:layout_marginTop="@dimen/dimen_22_dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/hot_search"
+            android:textColor="@color/search_text_color"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/search_referch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:src="@drawable/search_refersh" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/search_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_142_dip"
+        android:numColumns="3" 
+        android:listSelector="@drawable/white"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_49_dip"
+        android:layout_marginTop="@dimen/dimen_22_dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/search_history" 
+            android:textColor="@color/search_text_color"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:id="@+id/search_delect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:src="@drawable/delect" />
+    </RelativeLayout>
+
+     <TextView
+         android:id="@+id/no_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_32_dip"
+            android:text="@string/no_search_history"
+            android:textColor="@color/need_666"
+            android:textSize="13sp" />
+     <ListView 
+         android:id="@+id/search_history_listview"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:divider="@color/white"
+         android:dividerHeight="0dp"
+         ></ListView>
+</LinearLayout>

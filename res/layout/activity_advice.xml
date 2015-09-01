@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+    
+    <EditText 
+        android:id="@+id/advice_problem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_108_dip"
+        android:layout_marginTop="@dimen/dimen_24_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:background="@drawable/problem_corner"
+        android:hint="@string/advice_problem_tips"
+        android:paddingLeft="@dimen/dimen_14_dip"
+        android:paddingTop="@dimen/dimen_17_dip"
+        android:textColorHint="@color/need_666"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="12sp"
+        android:gravity="top"
+        />
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_161_dip"
+        android:layout_marginTop="@dimen/dimen_34_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:background="@drawable/problem_corner"
+        >
+        
+        <TextView 
+            android:id="@+id/problem_icon_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_15_dip"
+            android:layout_marginLeft="@dimen/dimen_14_dip"
+            android:text="@string/advice_problem_icon_tips"
+            android:textColor="@color/need_666"
+            android:textSize="13sp"
+            />
+        
+        <com.icar.view.HorizontalListView 
+            android:id="@+id/problem_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_26_dip"
+            android:layout_marginLeft="@dimen/dimen_34_dip"
+            android:layout_marginRight="@dimen/dimen_34_dip"
+            android:layout_marginBottom="@dimen/dimen_26_dip"
+            android:layout_below="@id/problem_icon_tips"
+            ></com.icar.view.HorizontalListView>
+    </RelativeLayout>
+    
+    <EditText 
+        android:id="@+id/advice_problem_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48_dip"
+        android:layout_marginTop="@dimen/dimen_34_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:background="@drawable/problem_corner"
+        android:hint="@string/advice_problem_mobile_tips"
+        android:paddingLeft="@dimen/dimen_14_dip"
+        android:textColorHint="@color/need_666"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        />
+    
+     <Button 
+        android:id="@+id/advice_problem_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_48_dip"
+        android:layout_marginTop="@dimen/dimen_37_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        android:background="@drawable/login_submit_selector"
+        android:text="@string/submit1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:gravity="center"
+        />
+</LinearLayout>

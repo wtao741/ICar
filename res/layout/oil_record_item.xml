@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/white" >
+    
+   <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/dimen_77_dip"
+       
+       >
+       
+       <ImageView 
+           android:id="@+id/oil_record_icon"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="@dimen/dimen_22_dip"
+           android:src="@drawable/oil_history_recore_icon"
+           />
+       
+       <TextView 
+           android:id="@+id/oil_record_date"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@id/oil_record_icon"
+           android:layout_marginLeft="@dimen/dimen_28_dip"
+           android:layout_marginTop="@dimen/dimen_10_dip"
+           android:text="2015-08-12"
+           android:textColor="@color/search_text_color"
+           android:textSize="13sp"
+           />
+       
+       <TextView 
+           android:id="@+id/oil_record_money"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@id/oil_record_icon"
+           android:layout_marginLeft="@dimen/dimen_28_dip"
+           android:layout_below="@id/oil_record_date"
+           android:layout_marginTop="@dimen/dimen_8_dip"
+           android:text="加油￥250元"
+           android:textSize="13sp"
+           android:textColor="@color/search_text_color"
+           />
+       
+       
+       <ImageView
+           android:id="@+id/right_icon"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="@dimen/dimen_22_dip"
+           android:src="@drawable/arrow_right"
+           />
+       
+        <TextView 
+           android:id="@+id/oil_record_avg"
+           android:layout_width="@dimen/dimen_130_dip"
+           android:layout_height="wrap_content"
+           android:layout_toLeftOf="@id/right_icon"
+           android:layout_marginRight="@dimen/dimen_46_dip"
+           android:layout_alignTop="@id/oil_record_money"
+           android:gravity="right"
+           android:text="11.56升/百公里"
+           android:textSize="13sp"
+           android:textColor="@color/search_text_color"
+           />
+       
+        <TextView 
+            android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            android:layout_alignTop="@id/oil_record_money"
+            android:layout_toLeftOf="@id/oil_record_avg"
+           android:text="加油:"
+           android:textSize="13sp"
+           android:textColor="@color/search_text_color"
+            />
+       <TextView 
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/dimen_0.5_dip"
+           android:background="@color/border"
+           android:layout_alignParentBottom="true"
+           />
+   </RelativeLayout>
+</LinearLayout>

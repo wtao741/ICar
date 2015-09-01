@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:id="@+id/car_brand_real"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_116_dip"
+        android:background="@color/white"
+        >
+        
+        <ImageView 
+            android:id="@+id/car_brand_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/car_brand1"
+            android:layout_centerInParent="true"
+            android:paddingBottom="@dimen/dimen_7_dip"
+            />
+        
+        <TextView 
+            android:id="@+id/car_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="奥迪"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp"
+            android:layout_below="@id/car_brand_icon"
+            android:layout_centerHorizontal="true"
+            />
+        
+        <TextView 
+            android:id="@+id/tv_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border"
+            />
+    </RelativeLayout>
+</LinearLayout>

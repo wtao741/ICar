@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_60_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/add_oil_date"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/add_oil_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_89_dip"
+            android:text="@string/add_oil_date"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_65_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/add_oil_odometer"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/add_oil_odomentr_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:text="公里"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/add_oil_odomentr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_25_dip"
+            android:layout_toLeftOf="@id/add_oil_odomentr_tips"
+            android:background="@null"
+            android:hint="当前里程表数"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp"
+            android:inputType="number"
+            android:gravity="right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_65_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/add_oil_money"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/add_oil_money_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:text="元"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/add_oil_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_43_dip"
+            android:layout_toLeftOf="@id/add_oil_money_tips"
+            android:background="@null"
+            android:hint="本次加油金额"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp"
+            android:inputType="number"
+            android:gravity="right"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_65_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/add_oil_price"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/add_oil_price_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:text="元/升"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/add_oil_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_18_dip"
+            android:layout_toLeftOf="@id/add_oil_price_tips"
+            android:background="@null"
+            android:hint="当日油价"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp"
+            android:inputType="number"
+            android:gravity="right"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_65_dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="@string/add_oil_amount"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+
+        <TextView
+            android:id="@+id/add_oil_amount_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:text="升"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/add_oil_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_43_dip"
+            android:layout_toLeftOf="@id/add_oil_amount_tips"
+            android:background="@null"
+            android:hint="本次加油量"
+            android:textColor="@color/home_title_bgm" 
+            android:textSize="13sp"
+            android:inputType="number"
+            android:gravity="right" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/oil_light_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginTop="@dimen/dimen_34_dip"
+        android:text="油表灯亮"
+        android:textColor="@color/home_title_bgm" 
+        android:textSize="13sp" />
+
+</LinearLayout>

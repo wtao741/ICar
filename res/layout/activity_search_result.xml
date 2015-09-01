@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_62_dip"
+        android:background="@color/home_title_bgm" >
+
+        <Button
+            android:id="@+id/search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_22_dip"
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="@color/white" 
+            android:textSize="11sp"/>
+
+        <com.icar.view.ClearEditText
+            android:id="@+id/search_et"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_31_dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_20_dip"
+            android:layout_marginRight="@dimen/dimen_17_dip"
+            android:layout_toLeftOf="@id/search_cancel"
+            android:background="@drawable/edittext_corner"
+            android:drawableLeft="@drawable/search_icon"
+            android:paddingLeft="@dimen/dimen_13_dip"
+            android:drawablePadding="@dimen/dimen_13_dip"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/border" />
+    </RelativeLayout>
+    
+     <ListView 
+         android:id="@+id/search_result_listView"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:listSelector="@drawable/white"
+         android:divider="@color/border"
+         android:dividerHeight="0.5px"
+         ></ListView>
+</LinearLayout>

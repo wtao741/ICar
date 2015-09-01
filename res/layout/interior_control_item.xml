@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+    
+    <ImageView
+        android:id="@+id/item_interior_iv"
+        android:layout_width="@dimen/dimen_208_dip"
+        android:layout_height="@dimen/dimen_139_dip"
+        android:src="@drawable/control1"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:layout_marginRight="@dimen/dimen_22_dip"
+        />
+    
+    <TextView 
+        android:id="@+id/item_interior_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        android:textColor="@color/home_title_bgm"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimen_11_dip"
+        />
+    
+</LinearLayout>
