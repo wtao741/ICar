@@ -74,7 +74,7 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 		
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
-		http.getClassContent(3805, classid);
+		http.getClassContent(2859, classid);
 		datas = new ArrayList<InteriorControlEntity>();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.car_normal_mid)
@@ -106,7 +106,8 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 					int position, long id) {
 				// TODO Auto-generated method stub
 				Bundle bundle = new Bundle();
-				bundle.putInt("classid", datas.get(position).getClassid());
+				bundle.putString("type", "interior");;
+				bundle.putSerializable("bean", datas.get(position));
 				openActivity(ShowActivity.class,bundle);
 			}
 		});

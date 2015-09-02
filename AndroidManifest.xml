@@ -181,6 +181,9 @@
           
           <activity
             android:name=".ShowActivity"
+            android:screenOrientation="portrait" />..
+            <activity
+            android:name=".AccidentProcessActivity"
             android:screenOrientation="portrait" />
     </application>
 

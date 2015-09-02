@@ -1,10 +1,16 @@
 package com.icar.bean;
 
+import java.io.Serializable;
+
 /**
  * @author gisdom
  *搜索结果
  */
-public class SearchEntity {
+public class SearchEntity implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int classid;
 	private String classname;
 	private String description;

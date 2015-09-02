@@ -72,9 +72,16 @@ public class DriveActivity extends AbstractTitleActivity {
 				case 2:
 					classType = CarCommentActivity.class;
 					break;
+				case 4:
+					classType = AccidentProcessActivity.class;
+					break;
+				case 5:
+					classType = AccidentProcessActivity.class;
+					break;
 				}
 				if (classType != null) {
 					Intent intent = new Intent(DriveActivity.this, classType);
+					intent.putExtra("type", position);
 					startActivity(intent);
 				}
 			}

@@ -5,9 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.icar.utils.HttpCallBack;
+import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +25,7 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -24,10 +35,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends Activity implements HttpCallBack {
 
 	@ViewInject(R.id.head_left)
 	LinearLayout head_left;
@@ -47,6 +60,18 @@ public class HomeActivity extends Activity {
 	View dot1;
 	@ViewInject(R.id.v_dot2)
 	View dot2;
+	@ViewInject(R.id.home_comment)
+	// 车辆使用满意度
+	TextView tv_comment;
+	@ViewInject(R.id.home_oil_tv)
+	// 我的油耗
+	TextView tv_oil;
+	@ViewInject(R.id.home_comment_bar)
+	// 车辆使用满意度
+	ProgressBar bar_comment;
+	@ViewInject(R.id.home_oil_bar)
+	// 我的油耗
+	ProgressBar bar_oil;
 
 	@OnClick(R.id.home_oil)
 	public void homeOilonClick(View v) {
@@ -56,19 +81,19 @@ public class HomeActivity extends Activity {
 
 	@OnClick(R.id.home_car_type)
 	public void homeCarTypeonClick(View v) {
-		Intent intent = new Intent(this, CarTypeActivity.class);
-		startActivity(intent);
+//		Intent intent = new Intent(this, CarTypeActivity.class);
+//		startActivity(intent);
 	}
 
 	@OnClick(R.id.home_my_car)
 	public void homeMyCaronClick(View v) {
-		Intent intent = new Intent(this, CarTypeActivity.class);
-		startActivity(intent);
+//		Intent intent = new Intent(this, CarTypeActivity.class);
+//		startActivity(intent);
 	}
 
 	private int home_icon_normal = R.drawable.home_add;
 
-	private List<String> uris = new ArrayList<String>();
+	private List<String> uris;
 
 	private List<ImageView> views = new ArrayList<ImageView>();
 
@@ -88,6 +113,17 @@ public class HomeActivity extends Activity {
 			R.drawable.home_bt_icon7, R.drawable.home_bt_icon8,
 			R.drawable.home_bt_icon9, R.drawable.home_bt_icon10 };
 
+	private HttpUtil http;
+
+	private String seriesname; // 车系名称
+	private String logoicon; // 车系url
+
+	private String satdegree; // 车辆满意度
+	private String oil; // 我的油耗
+
+	private ImageLoader imageLoader;
+	private DisplayImageOptions options;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -96,11 +132,19 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.activity_home);
 
 		ViewUtils.inject(this);
+		http = new HttpUtil(this);
+		http.setHttpCallBack(this);
+		http.getHomeContent(2859);
+
+		imageLoader = ImageLoader.getInstance();
+		options = new DisplayImageOptions.Builder()
+				.showImageForEmptyUri(R.drawable.car_normal_low)
+				.showImageOnFail(R.drawable.car_normal_low)
+				.showImageOnLoading(R.drawable.car_normal_low).build();
 
 		setGridView();
 		setEditListener();
 
-		setViewPager();
 		head_left.setVisibility(View.GONE);
 	}
 
@@ -109,10 +153,15 @@ public class HomeActivity extends Activity {
 		dots.add(dot0);
 		dots.add(dot1);
 		dots.add(dot2);
-		for (int i = 0; i < cars.length; i++) {
+
+		for (int i = 0; i < uris.size(); i++) {
+			dots.get(i).setVisibility(View.VISIBLE);
+		}
+
+		for (int i = 0; i < uris.size(); i++) {
 			ImageView view = new ImageView(this);
 			view.setScaleType(ScaleType.FIT_XY);
-			view.setImageResource(cars[i]);
+			imageLoader.displayImage(uris.get(i), view, options);
 			views.add(view);
 		}
 
@@ -185,7 +234,7 @@ public class HomeActivity extends Activity {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return cars.length;
+			return uris.size();
 		}
 
 		@Override
@@ -228,5 +277,69 @@ public class HomeActivity extends Activity {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void onFailure(int requestCode, HttpException arg0, String arg1) {
+
+	}
+
+	@Override
+	public void onSuccess(int requestCode, ResponseInfo<String> arg0) {
+		uris = new ArrayList<String>();
+		String result = arg0.result;
+		Log.e("tag", "home:" + arg0.result);
+		try {
+			JSONObject object = new JSONObject(result);
+			String code = object.getString("code");
+			if (code.equals("200")) {
+				JSONObject dataObject = object.getJSONObject("data");
+				seriesname = dataObject.getString("seriesname");
+				logoicon = dataObject.getString("logoicon");
+				satdegree = dataObject.getString("satdegree");
+				oil = dataObject.getString("oil");
+				JSONArray thumbArray = dataObject.getJSONArray("thumb");
+				int thumbLen = thumbArray.length();
+				for (int i = 0; i < thumbLen; i++) {
+					JSONObject thumbObject = thumbArray.getJSONObject(i);
+					String url = thumbObject.getString("imageurl");
+					uris.add(url);
+				}
+
+				initView();
+			} else {
+				Toast.makeText(this, code, 2000).show();
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void initView() {
+		imageLoader.displayImage(logoicon, iv_type_icon, options);
+		tv_type_name.setText(seriesname);
+		tv_comment.setText(satdegree + "/40分");
+		tv_oil.setText(oil + "升");
+		
+		int comment;
+		try{
+			comment = Integer.parseInt(satdegree);
+		}catch(Exception e){
+			comment = 0;
+		}
+		
+		bar_comment.setProgress(comment);
+		
+		int bar1;
+		try{
+			bar1 = Integer.parseInt(oil);
+		}catch(Exception e){
+			bar1 = 0;
+		}
+		
+		bar_oil.setProgress(bar1);
+		
+		setViewPager();
 	}
 }

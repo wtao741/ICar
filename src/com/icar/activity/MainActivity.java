@@ -115,7 +115,8 @@ public class MainActivity extends TabActivity {
 						BaseApplication.user.setUserName(userObject.getString("nickname"));
 						BaseApplication.user.setCityId(userObject.getInt("cityid"));
 						BaseApplication.user.setCity(userObject.getString("cityname"));
-						BaseApplication.user.setHead_url(userObject.getString("avatar"));
+						BaseApplication.user.setHead_url("http://api.iucars.com/"+userObject.getString("avatar"));
+						Log.e("tag", "url:"+BaseApplication.user.getHead_url());
 						BaseApplication.user.setPassword(BaseApplication.getPassword());
 						finish();
 					}else if(result.equals("0")){

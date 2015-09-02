@@ -107,8 +107,8 @@ public class ShakeActivity extends AbstractTitleActivity implements HeadClick,Ht
 		http.getShakeInfo(3805);
 		
 		imageLoader = ImageLoader.getInstance();
-		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.car1)
-				.showImageOnFail(R.drawable.car1).showImageForEmptyUri(R.drawable.car1).build();
+		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.car_normal_max)
+				.showImageOnFail(R.drawable.car_normal_max).showImageForEmptyUri(R.drawable.car_normal_max).build();
 	}
 
 	private void setDesClick() {

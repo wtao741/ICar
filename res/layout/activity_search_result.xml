@@ -34,7 +34,9 @@
             android:drawableLeft="@drawable/search_icon"
             android:paddingLeft="@dimen/dimen_13_dip"
             android:drawablePadding="@dimen/dimen_13_dip"
-            android:textSize="12sp" />
+            android:textSize="12sp" 
+            android:imeOptions="actionSearch"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -51,4 +53,14 @@
          android:divider="@color/border"
          android:dividerHeight="0.5px"
          ></ListView>
+     
+     <TextView 
+         android:id="@+id/tv_null"
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/dimen_30_dip"
+         android:gravity="center"
+         android:text="搜索结果为空"
+         android:textColor="@color/home_title_bgm"
+         android:visibility="gone"
+         />
 </LinearLayout>

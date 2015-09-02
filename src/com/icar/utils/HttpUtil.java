@@ -42,6 +42,26 @@ public class HttpUtil {
 		this.httpCallBack = httpCallBack;
 	}
 	
+	
+	public void getHomeContent(int seriesid){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=getSeriesThumb&seriesid="+seriesid;
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				showShortToast(""+arg0.getExceptionCode());
+				tips.dismissLoadingDialog();
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
 	/*
 	 * 获取验证码
 	 * 注册时判断用户是否已注册
@@ -340,7 +360,7 @@ public class HttpUtil {
 	 * GET 参数：seriesid(车系id)  ,keywords(关键字)，callback=?(自定义函数)
 	 */
 	public void homeSearch(int seriesid,String keywords){
-		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=Search&seriesid="+seriesid+"&keywords="+keywords+"&callback=";
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=Search&seriesid="+seriesid+"&keywords="+keywords;
 		tips.showLoadingDialog(context);
 		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
 

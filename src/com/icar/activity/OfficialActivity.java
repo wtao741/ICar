@@ -82,7 +82,7 @@ public class OfficialActivity extends AbstractTitleActivity implements HttpCallB
 				int id = object.getInt("id");
 				String classname = object.getString("classname");
 				//int pagesum = object.getInt("pagesum");
-				int zipsize = object.getInt("zipsize");
+				int zipsize = object.optInt("zipsize");
 				
 				List<OfficialSecEntity> secData = new ArrayList<OfficialSecEntity>();
 				JSONArray secArray = object.getJSONArray("sec");

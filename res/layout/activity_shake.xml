@@ -73,8 +73,7 @@
                 <ImageView
                     android:id="@+id/shake_icon"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/car1" />
+                    android:layout_height="match_parent" />
 
                 <TextView
                     android:id="@+id/shake_icon_tv"

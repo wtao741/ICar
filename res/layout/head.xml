@@ -45,7 +45,7 @@
         android:layout_toLeftOf="@id/head_right"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dimen_20_dip"
-        android:src="@drawable/my_collect" 
+        android:src="@drawable/collection_normal" 
         android:visibility="gone"/>
     
   
