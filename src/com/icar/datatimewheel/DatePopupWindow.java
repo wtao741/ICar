@@ -18,7 +18,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-
 /**
  * 性别
  * 
@@ -27,8 +26,7 @@ import android.widget.TextView;
  *         2015-2-8 下午4:06:12
  */
 @SuppressLint("ViewConstructor")
-public class DatePopupWindow extends PopupWindow
-{
+public class DatePopupWindow extends PopupWindow {
 
 	private View mMenuView;
 
@@ -41,8 +39,7 @@ public class DatePopupWindow extends PopupWindow
 	String title;
 
 	public DatePopupWindow(Activity context, String title,
-			OnDateSelectListener selectListener)
-	{
+			OnDateSelectListener selectListener) {
 		super(context);
 		this.title = title;
 		this.selectListener = selectListener;
@@ -75,18 +72,14 @@ public class DatePopupWindow extends PopupWindow
 		// 设置SelectPicPopupWindow弹出窗体的背景
 		this.setBackgroundDrawable(dw);
 		// mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
-		mMenuView.setOnTouchListener(new OnTouchListener()
-		{
+		mMenuView.setOnTouchListener(new OnTouchListener() {
 
-			public boolean onTouch(View v, MotionEvent event)
-			{
+			public boolean onTouch(View v, MotionEvent event) {
 
 				int height = mMenuView.findViewById(R.id.pop_layout).getTop();
 				int y = (int) event.getY();
-				if (event.getAction() == MotionEvent.ACTION_UP)
-				{
-					if (y < height)
-					{
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					if (y < height) {
 						dismiss();
 					}
 				}
@@ -95,8 +88,7 @@ public class DatePopupWindow extends PopupWindow
 		});
 	}
 
-	private void initView()
-	{
+	private void initView() {
 		int curYears = 0;
 		int curMonth = 0;
 		int day = 0;
@@ -125,48 +117,38 @@ public class DatePopupWindow extends PopupWindow
 		day_view.setCurrentItem(day - 1);
 	}
 
-	protected void initListener()
-	{
-		year_view.addChangingListener(new OnWheelChangedListener()
-		{
+	protected void initListener() {
+		year_view.addChangingListener(new OnWheelChangedListener() {
 
 			@Override
-			public void onChanged(WheelView wheel, int oldValue, int newValue)
-			{
+			public void onChanged(WheelView wheel, int oldValue, int newValue) {
 				refreshDay(newValue, month_view.getCurrentItem());
 			}
 		});
-		month_view.addChangingListener(new OnWheelChangedListener()
-		{
+		month_view.addChangingListener(new OnWheelChangedListener() {
 
 			@Override
-			public void onChanged(WheelView wheel, int oldValue, int newValue)
-			{
+			public void onChanged(WheelView wheel, int oldValue, int newValue) {
 				refreshDay(year_view.getCurrentItem(), newValue);
 			}
 		});
 		View close_button = mMenuView.findViewById(R.id.close_button);
-		close_button.setOnClickListener(new View.OnClickListener()
-		{
+		close_button.setOnClickListener(new View.OnClickListener() {
 
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v) {
 				dismiss();
 			}
 		});
 		View ok_button = mMenuView.findViewById(R.id.ok_button);
-		ok_button.setOnClickListener(new View.OnClickListener()
-		{
+		ok_button.setOnClickListener(new View.OnClickListener() {
 
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v) {
 				String value = changeTime(year_view.getCurrentYearValue())
 						+ "-" + changeTime(month_view.getCurrentValue()) + "-"
 						+ changeTime(day_view.getCurrentValue());
-				if (null != selectListener)
-				{
+				if (null != selectListener) {
 					selectListener.onDateSelect(value);
 				}
 				dismiss();
@@ -174,13 +156,11 @@ public class DatePopupWindow extends PopupWindow
 		});
 	}
 
-	public static String changeTime(int value)
-	{
+	public static String changeTime(int value) {
 		return value < 10 ? ("0" + value) : (value + "");
 	}
 
-	private void refreshDay(int year, int month)
-	{
+	private void refreshDay(int year, int month) {
 		Calendar c = Calendar.getInstance();
 		c.set(Calendar.YEAR, year);
 		c.set(Calendar.MONTH, month);
@@ -188,13 +168,11 @@ public class DatePopupWindow extends PopupWindow
 		day_view.setAdapter(dayAdapter);
 	}
 
-	public void showWindow(View view)
-	{
+	public void showWindow(View view) {
 		showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 	}
 
-	public interface OnDateSelectListener
-	{
+	public interface OnDateSelectListener {
 		public void onDateSelect(String value);
 	}
 }

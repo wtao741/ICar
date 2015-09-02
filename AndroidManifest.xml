@@ -188,7 +188,8 @@
             
              <activity
             android:name=".AccidentDesActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" 
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

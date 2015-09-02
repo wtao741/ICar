@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgm"
@@ -92,7 +93,8 @@
                 android:paddingLeft="@dimen/dimen_12_dip"
                 android:textColor="@color/home_title_bgm"
                 android:textColorHint="@color/need_666"
-                android:textSize="11sp" />
+                android:textSize="11sp" 
+                android:singleLine="true"/>
         </RelativeLayout>
     </RelativeLayout>
 
@@ -267,6 +269,7 @@
             android:textSize="13sp" />
 
         <RelativeLayout
+            android:id="@+id/des"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_marginLeft="@dimen/dimen_21_dip"
@@ -285,7 +288,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center_vertical"
-                android:hint="@string/location_tips"
+                android:hint="@string/accident_des"
                 android:paddingLeft="@dimen/dimen_12_dip"
                 android:textColor="@color/home_title_bgm"
                 android:textColorHint="@color/need_666"
