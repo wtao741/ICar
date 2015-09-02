@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.icar.base.BaseApplication;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.ViewUtils;
@@ -305,7 +306,7 @@ public class HomeActivity extends Activity implements HttpCallBack {
 					String url = thumbObject.getString("imageurl");
 					uris.add(url);
 				}
-
+				BaseApplication.hotline = dataObject.getString("hotline");
 				initView();
 			} else {
 				Toast.makeText(this, code, 2000).show();

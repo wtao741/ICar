@@ -52,6 +52,8 @@ public class BaseApplication extends Application {
 	private static SharedPreferences preference;
 	private static Editor edit;
 
+	public static String hotline = "";    //客服电话
+	
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub

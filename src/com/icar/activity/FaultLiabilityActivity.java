@@ -28,6 +28,16 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 
 	private CommonAdapter adapter;
 
+	private int[] imgs = {R.drawable.fault1,R.drawable.fault2,R.drawable.fault3,R.drawable.fault4,R.drawable.fault5,
+			R.drawable.fault6,R.drawable.fault7,R.drawable.fault8,R.drawable.fault9,R.drawable.fault10,
+			R.drawable.fault11,R.drawable.fault12,R.drawable.fault13,R.drawable.fault14,
+			R.drawable.fault16,R.drawable.fault17,R.drawable.fault18,R.drawable.fault19,R.drawable.fault20,
+			R.drawable.fault21,R.drawable.fault22,R.drawable.fault23,R.drawable.fault24,R.drawable.fault25,
+			R.drawable.fault26,R.drawable.fault27,R.drawable.fault28,R.drawable.fault29,R.drawable.fault30,
+			R.drawable.fault31,R.drawable.fault32,R.drawable.fault33,R.drawable.fault34,R.drawable.fault35,
+			R.drawable.fault36,R.drawable.fault37,R.drawable.fault38};
+	
+	private String[] strs = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -39,6 +49,8 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 		isShowRightView(0, false);
 		ViewUtils.inject(this);
 
+		strs = getResources().getStringArray(R.array.fault);
+		
 		addDatas();
 		setAdapter();
 	}
@@ -51,6 +63,7 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 			public void convert(ViewHolder helper,
 					final FaultLiabilityEntity item) {
 				helper.setText(R.id.fault_des, item.getDes());
+				helper.setImageResource(R.id.fault_icon, item.getIcon());
 				final ImageView iv = helper.getView(R.id.fault_icon_right);
 				final TextView tv = helper.getView(R.id.fault_des);
 				final RelativeLayout rela = helper.getView(R.id.fault_real);
@@ -60,7 +73,6 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 					public void onClick(View v) {
 
 						int line = tv.getLineCount();
-						Log.e("tag", ""+line);
 						if (line > 2) {
 							if (item.isClose()) {
 								iv.setImageResource(R.drawable.fault_click);
@@ -86,30 +98,12 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 
 	private void addDatas() {
 		datas = new ArrayList<FaultLiabilityEntity>();
-
-		FaultLiabilityEntity bean1 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说:你看到我一抽烟就扇我脸知道吗？他点了点头。一个月后我们绝交了", true);
-		FaultLiabilityEntity bean2 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说", true);
-		FaultLiabilityEntity bean3 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说:", true);
-		FaultLiabilityEntity bean4 = new FaultLiabilityEntity(R.drawable.fault,
-				"大河向东流啊，天下的情侣都分手呀，嘿嘿嘿嘿都分手呀，过了今天都分手呀。一辈子做单身狗呀。嘿呀咦儿呀，嘿嘿嘿嘿咦儿呀。",
-				true);
-		FaultLiabilityEntity bean5 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说", true);
-		FaultLiabilityEntity bean6 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说", true);
-		FaultLiabilityEntity bean7 = new FaultLiabilityEntity(R.drawable.fault,
-				"有一次我决定要戒烟，就跟一个过命的朋友说", true);
-
-		datas.add(bean1);
-		datas.add(bean2);
-		datas.add(bean3);
-		datas.add(bean4);
-		datas.add(bean5);
-		datas.add(bean6);
-		datas.add(bean7);
+		
+		for(int i=0;i<strs.length;i++){
+			FaultLiabilityEntity bean = new FaultLiabilityEntity(imgs[i],
+					strs[i], true);
+			datas.add(bean);
+		}
 	}
 
 }

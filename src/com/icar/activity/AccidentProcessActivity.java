@@ -44,8 +44,6 @@ public class AccidentProcessActivity extends AbstractTitleActivity {
 
 		ViewUtils.inject(this);
 
-		String url = "http://api.iucars.com/data/App/accident.html";
-
 		webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 		webView.getSettings().setBuiltInZoomControls(true);
 		webView.getSettings().setJavaScriptEnabled(true);

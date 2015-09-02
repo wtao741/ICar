@@ -113,17 +113,18 @@ public class MainActivity extends TabActivity {
 						JSONObject userObject = object.getJSONObject("data");
 						BaseApplication.user.setName(BaseApplication.getUserName());
 						BaseApplication.user.setUserName(userObject.getString("nickname"));
-						BaseApplication.user.setCityId(userObject.getInt("cityid"));
+						//BaseApplication.user.setCityId(userObject.getString("cityid"));
 						BaseApplication.user.setCity(userObject.getString("cityname"));
-						BaseApplication.user.setHead_url("http://api.iucars.com/"+userObject.getString("avatar"));
-						Log.e("tag", "url:"+BaseApplication.user.getHead_url());
+						String url = userObject.getString("avatar");
+						url = url.replace("./", "/");
+						BaseApplication.user.setHead_url("http://api.iucars.com"+url);
 						BaseApplication.user.setPassword(BaseApplication.getPassword());
-						finish();
 					}else if(result.equals("0")){
 					}else{
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
+					Log.e("tag", e.getMessage());
 					e.printStackTrace();
 				}
 			}
