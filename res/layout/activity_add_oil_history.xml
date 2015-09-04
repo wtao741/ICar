@@ -15,8 +15,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_22_dip"
             android:text="@string/add_oil_date"
-            android:textColor="@color/home_title_bgm" 
-            android:textSize="13sp"/>
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_89_dip"
             android:text="@string/add_oil_date"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
     </RelativeLayout>
 
@@ -46,7 +46,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_22_dip"
             android:text="@string/add_oil_odometer"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <TextView
@@ -63,7 +63,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_22_dip"
             android:text="公里"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <EditText
@@ -74,11 +74,11 @@
             android:layout_marginRight="@dimen/dimen_25_dip"
             android:layout_toLeftOf="@id/add_oil_odomentr_tips"
             android:background="@null"
+            android:gravity="right"
             android:hint="当前里程表数"
-            android:textColor="@color/home_title_bgm" 
-            android:textSize="13sp"
             android:inputType="number"
-            android:gravity="right" />
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -91,7 +91,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_22_dip"
             android:text="@string/add_oil_money"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <TextView
@@ -108,7 +108,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_22_dip"
             android:text="元"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <EditText
@@ -119,11 +119,11 @@
             android:layout_marginRight="@dimen/dimen_43_dip"
             android:layout_toLeftOf="@id/add_oil_money_tips"
             android:background="@null"
+            android:gravity="right"
             android:hint="本次加油金额"
-            android:textColor="@color/home_title_bgm" 
-            android:textSize="13sp"
             android:inputType="number"
-            android:gravity="right"/>
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -136,7 +136,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_22_dip"
             android:text="@string/add_oil_price"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <TextView
@@ -153,7 +153,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_22_dip"
             android:text="元/升"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <EditText
@@ -164,11 +164,11 @@
             android:layout_marginRight="@dimen/dimen_18_dip"
             android:layout_toLeftOf="@id/add_oil_price_tips"
             android:background="@null"
+            android:gravity="right"
             android:hint="当日油价"
-            android:textColor="@color/home_title_bgm" 
-            android:textSize="13sp"
             android:inputType="number"
-            android:gravity="right"/>
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -181,7 +181,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_22_dip"
             android:text="@string/add_oil_amount"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <TextView
@@ -198,7 +198,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimen_22_dip"
             android:text="升"
-            android:textColor="@color/home_title_bgm" 
+            android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
 
         <EditText
@@ -209,21 +209,98 @@
             android:layout_marginRight="@dimen/dimen_43_dip"
             android:layout_toLeftOf="@id/add_oil_amount_tips"
             android:background="@null"
+            android:gravity="right"
             android:hint="本次加油量"
-            android:textColor="@color/home_title_bgm" 
-            android:textSize="13sp"
             android:inputType="number"
-            android:gravity="right" />
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/oil_light_tips"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dimen_22_dip"
-        android:layout_marginTop="@dimen/dimen_34_dip"
-        android:text="油表灯亮"
-        android:textColor="@color/home_title_bgm" 
-        android:textSize="13sp" />
+        android:layout_marginTop="@dimen/dimen_34_dip" >
+
+        <TextView
+            android:id="@+id/oil_light_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:text="油表灯亮"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" 
+            android:layout_centerVertical="true"/>
+        
+         <LinearLayout 
+             android:layout_width="@dimen/dimen_116_dip"
+             android:layout_height="@dimen/dimen_43_dip"
+             android:background="@drawable/oil_shape"
+             android:layout_toRightOf="@id/oil_light_tips"
+             android:layout_marginLeft="@dimen/dimen_16_dip"
+             android:orientation="horizontal"
+             >
+             
+             <Button 
+                 android:id="@+id/light_yes"
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:text="是"
+                 android:textColor="@color/white"
+                 android:background="@drawable/login_submit_normal"
+                 />
+             
+             <Button 
+                 android:id="@+id/light_no"
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:text="否"
+                 android:textColor="@color/home_title_bgm"
+                 android:background="@null"
+                 />
+         </LinearLayout>
+         
+         <LinearLayout 
+             android:id="@+id/all_linear"
+             android:layout_width="@dimen/dimen_116_dip"
+             android:layout_height="@dimen/dimen_43_dip"
+             android:background="@drawable/oil_shape"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="@dimen/dimen_22_dip"
+             android:orientation="horizontal"
+             >
+             
+             <Button 
+                 android:id="@+id/all_yes"
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:text="是"
+                 android:textColor="@color/white"
+                 android:background="@drawable/login_submit_normal"
+                 />
+             
+             <Button 
+                 android:id="@+id/all_no"
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:text="否"
+                 android:textColor="@color/home_title_bgm"
+                 android:background="@null"
+                 />
+         </LinearLayout>
+         
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/all_linear"
+            android:layout_marginRight="@dimen/dimen_16_dip"
+            android:text="本次加满"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="13sp" 
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
 </LinearLayout>

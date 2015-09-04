@@ -5,6 +5,36 @@
     android:orientation="vertical"
     android:background="@color/bgm" >
     
+    <LinearLayout 
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/dimen_24_dip"
+        android:layout_marginRight="@dimen/dimen_24_dip"
+        android:background="@drawable/comment_score"
+        android:orientation="horizontal"
+        >
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="33"
+            android:textColor="@color/home_text_color"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            />
+         <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/40分"
+            android:textColor="@color/home_title_bgm"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            />
+    </LinearLayout>
     <ListView
         android:id="@+id/car_comment_listview"
         android:layout_width="match_parent"
@@ -50,7 +80,7 @@
        android:layout_marginTop="@dimen/dimen_33_dip"
         android:background="@drawable/add_oil_selector"
         android:gravity="center"
-        android:text="@string/save"
+        android:text="重新打分"
         android:textColor="@color/white"
         android:textSize="14sp"
         />

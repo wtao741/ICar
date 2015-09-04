@@ -33,29 +33,29 @@
                 android:layout_height="32dp"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/chatting_setmode_voice_btn"
-                android:onClick="setModeVoice"/>
+                android:onClick="setModeVoice" />
 
-            <LinearLayout
-                android:id="@+id/btn_press_to_speak"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
+            <Button
+                android:id="@+id/btn_set_mode_keyboard"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="6dp"
-                android:layout_weight="1"
+                android:background="@drawable/chatting_setmode_keyboard_btn"
+                android:onClick="setModeKeyboard"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_speak"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/chat_press_speak_btn"
                 android:gravity="center"
+                android:text="长按说话"
+                android:textColor="#000000"
                 android:visibility="gone" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/button_pushtotalk"
-                    android:textColor="#666666"
-                    android:textSize="16sp" />
-            </LinearLayout>
+            </Button>
 
             <RelativeLayout
                 android:id="@+id/edittext_layout"
@@ -100,63 +100,17 @@
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
+    <com.icar.view.PullListView
+        android:id="@+id/chat_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bar_bottom" >
-
-        <ProgressBar
-            android:id="@+id/pb_load_more"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
-
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/chat_swipe_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <ListView
-                android:id="@+id/list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/pb_load_more"
-                android:cacheColorHint="#00000000"
-                android:divider="@null"
-                android:dividerHeight="5dp"
-                android:listSelector="#00000000"
-                android:scrollbarStyle="outsideOverlay"
-                android:transcriptMode="normal" />
-        </android.support.v4.widget.SwipeRefreshLayout>
-
-        <RelativeLayout
-            android:id="@+id/recording_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/recording_hint_bg"
-            android:padding="10dp"
-            android:visibility="invisible" >
-
-            <ImageView
-                android:id="@+id/mic_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/record_animate_01" />
-
-            <TextView
-                android:id="@+id/recording_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mic_image"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"
-                android:text="@string/move_up_to_cancel"
-                android:textSize="10sp" />
-        </RelativeLayout>
-    </RelativeLayout>
+        android:layout_above="@id/bar_bottom"
+        android:background="@color/listview_bg"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"
+        android:transcriptMode="normal" >
+    </com.icar.view.PullListView>
 
 </RelativeLayout>

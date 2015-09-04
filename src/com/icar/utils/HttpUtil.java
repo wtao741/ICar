@@ -3,6 +3,8 @@ package com.icar.utils;
 import java.io.File;
 
 import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.util.Log;
@@ -42,6 +44,257 @@ public class HttpUtil {
 		this.httpCallBack = httpCallBack;
 	}
 	
+	
+	/**
+	 * 油耗记录首页
+	 * @param mobile
+	 */
+	public void oilRecord(String mobile){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=oilRecordView&mobile="+mobile;
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 添加油耗记录
+	 * @param mobile
+	 * @param chargedate
+	 * @param mileage
+	 * @param money
+	 * @param price
+	 * @param chargeoil
+	 * @param light
+	 * @param full
+	 * @param forget
+	 */
+	public void addOilRecord(String chargedate,String mileage,
+			String money,String price,String chargeoil,int light,int full,int forget){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=oilRecordAdd";
+	tips.showLoadingDialog(context);
+	RequestParams params = new RequestParams();
+	params.addBodyParameter("mobile", BaseApplication.getUserName());
+	params.addBodyParameter("chargedate", chargedate);
+	params.addBodyParameter("mileage", mileage);
+	params.addBodyParameter("money", money);
+	params.addBodyParameter("price", price);
+	params.addBodyParameter("chargeoil", chargeoil);
+	params.addBodyParameter("light", ""+light);
+	params.addBodyParameter("full", ""+full);
+	params.addBodyParameter("forget",""+forget);
+	httpUtils.send(HttpMethod.POST, url, params,new RequestCallBack<String>() {
+
+		@Override
+		public void onFailure(HttpException arg0, String arg1) {
+			tips.dismissLoadingDialog();
+			showShortToast(""+arg0.getExceptionCode());
+		}
+
+		@Override
+		public void onSuccess(ResponseInfo<String> arg0) {
+			tips.dismissLoadingDialog();
+			Log.e("tag", arg0.result);
+			String code = "";
+			try {
+				JSONObject object = new JSONObject(arg0.result);
+				code = object.getString("code");
+				if(code.equals("200")){
+					showShortToast("添加成功");
+				}else{
+					showShortToast("添加失败");
+				}
+			} catch (JSONException e) {
+				showShortToast("添加失败");
+				e.printStackTrace();
+			}
+		}
+	});
+	}
+	
+	public void getOilHistory(){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=oilRecordList&mobile="+BaseApplication.getUserName();
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 车辆使用满意度
+	 * @param mobile
+	 * @param seriesid
+	 * @param oil
+	 * @param air
+	 * @param park
+	 * @param airconditioner
+	 * @param space
+	 * @param userful
+	 * @param service
+	 * @param vehicle
+	 */
+	public void userGradeAdd(String mobile,String seriesid,String oil,String air,String park,String airconditioner
+			,String space,String userful,String service,String vehicle){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=userGradeAdd";
+		RequestParams params = new RequestParams();
+		params.addBodyParameter("mobile", mobile);
+		params.addBodyParameter("seriesid", seriesid);
+		params.addBodyParameter("oil", oil);
+		params.addBodyParameter("air", air);
+		params.addBodyParameter("park", park);
+		params.addBodyParameter("airconditioner", airconditioner);
+		params.addBodyParameter("space", space);
+		params.addBodyParameter("userful", userful);
+		params.addBodyParameter("service", service);
+		params.addBodyParameter("vehicle", vehicle);
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.POST, url, params,new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 添加收藏
+	 */
+	public void collect(String mobile, int seriesid ,int classid){ 
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=collectAdd&mobile="+mobile+"&seriesid="+seriesid+"&classid="+classid;
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	public void oilRecordDel(String id){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=collectDel&mobile="+BaseApplication.getUserName()+"&id="+id;
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(1, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 删除收藏
+	 * @param mobile
+	 * @param seriesid
+	 * @param classid
+	 */
+	public void delectCollect(String mobile,int seriesid,int[] classid){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=collectDel&mobile="+mobile+"&seriesid="+seriesid+"&classid="+classid;
+	    httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				showShortToast("fail"+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				// TODO Auto-generated method stub
+				Log.e("tag", "delect:"+arg0.result);
+				httpCallBack.onSuccess(1, arg0);
+			}
+		});
+	}
+	
+	public void collectDel(String id){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=collectDel&id="+id;
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(1, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 得到收藏记录
+	 * @param mobile
+	 * @param classid
+	 */
+	public void getCollect(String mobile,int seriesid){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=collectList&mobile="+mobile+"&seriesid="+seriesid;
+	    tips.showLoadingDialog(context);
+	    httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				showShortToast(""+arg0.getExceptionCode());
+				tips.dismissLoadingDialog();
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
 	
 	public void getHomeContent(int seriesid){
 		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=getSeriesThumb&seriesid="+seriesid;

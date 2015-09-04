@@ -11,7 +11,8 @@
         android:layout_gravity="center"
         android:drawablePadding="@dimen/dimen_12_dip"
         android:drawableTop="@drawable/my_collect"
-        android:text="@string/no_collect" />
+        android:text="@string/no_collect" 
+        android:visibility="gone"/>
 
     <ListView
         android:id="@+id/my_collect_listView"
@@ -19,7 +20,6 @@
         android:layout_height="match_parent"
         android:divider="@color/white"
         android:dividerHeight="0dp"
-        android:visibility="gone"
         android:layout_marginBottom="@dimen/dimen_64_dip" />
 
     <LinearLayout

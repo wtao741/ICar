@@ -5,6 +5,7 @@ import java.util.List;
 import com.icar.activity.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,16 @@ public class CarCommentAdapter extends BaseAdapter {
 
 	private Context context;
 
+	public int[] scores ;
+	
 	public CarCommentAdapter(Context context, List<String> datas) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.datas = datas;
+		
+		scores = new int[]{5,5,5,5,5,5,5,5};
 	}
-
+	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -44,7 +49,7 @@ public class CarCommentAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		final ViewHolder viewHolder;
 		if (convertView == null) {
@@ -60,7 +65,17 @@ public class CarCommentAdapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 		viewHolder.tv_tips.setText(datas.get(position));
-
+        
+		String scoreStr = viewHolder.tv_score.getText().toString();
+		int score = 0;
+		try{
+			score = Integer.parseInt(scoreStr);
+		}catch(Exception e){
+			score = 0;
+		}
+		
+		viewHolder.bar.setProgress(score);
+		
 		viewHolder.bar
 				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -81,8 +96,11 @@ public class CarCommentAdapter extends BaseAdapter {
 							int progress, boolean fromUser) {
 						// TODO Auto-generated method stub
 						viewHolder.tv_score.setText("" + progress);
+						scores[position] = progress;
+						Log.e("tag", ""+progress+" "+scores[position]);
 					}
 				});
+		//scores[position] = Integer.parseInt(scoreStr);
 		return convertView;
 	}
 
@@ -90,5 +108,9 @@ public class CarCommentAdapter extends BaseAdapter {
 		public TextView tv_tips;
 		public SeekBar bar;
 		public TextView tv_score;
+	}
+	
+	public int[] getScore(){
+		return scores;
 	}
 }

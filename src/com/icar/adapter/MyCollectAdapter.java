@@ -6,6 +6,8 @@ import java.util.Set;
 
 import com.icar.activity.R;
 import com.icar.bean.MyCollectEntity;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,6 +26,10 @@ public class MyCollectAdapter extends BaseAdapter {
 
 	private LayoutInflater layoutInflater;
 
+	private ImageLoader imageLaoder;
+	
+	private DisplayImageOptions options;
+	
 	public Set<Integer> checks;
 
 	private CountChangeImp count;
@@ -49,6 +55,11 @@ public class MyCollectAdapter extends BaseAdapter {
 		this.datas = datas;
 		layoutInflater = LayoutInflater.from(context);
 		checks = new HashSet<Integer>();
+		
+		imageLaoder = ImageLoader.getInstance();
+		options = new DisplayImageOptions.Builder().showImageForEmptyUri(R.drawable.car_normal_low)
+				.showImageOnFail(R.drawable.car_normal_low).showImageOnLoading(R.drawable.car_normal_low)
+				.cacheInMemory(true).build();
 	}
 
 	@Override
@@ -96,7 +107,7 @@ public class MyCollectAdapter extends BaseAdapter {
 		}
 
 		MyCollectEntity bean = datas.get(position);
-		viewHolder.iv.setImageResource(bean.getIcons());
+		imageLaoder.displayImage(bean.getImgurl(), viewHolder.iv, options);
 		viewHolder.tv_title.setText(bean.getTitle());
 		viewHolder.tv_des.setText(bean.getDes());
 

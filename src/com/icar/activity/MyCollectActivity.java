@@ -1,13 +1,13 @@
 package com.icar.activity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,16 +17,23 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.icar.adapter.CountChangeImp;
 import com.icar.adapter.MyCollectAdapter;
 import com.icar.base.AbstractTitleActivity;
+import com.icar.base.BaseApplication;
 import com.icar.bean.MyCollectEntity;
+import com.icar.utils.HttpCallBack;
+import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 public class MyCollectActivity extends AbstractTitleActivity implements
-		CountChangeImp {
+		CountChangeImp,HttpCallBack {
 
 	@ViewInject(R.id.head_right)
 	TextView head_right;
@@ -45,13 +52,9 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 
 	private MyCollectAdapter adapter;
 
-	@OnClick(R.id.no_data)
-	public void noDataonClick(View v) {
-		tv_null.setVisibility(View.GONE);
-		listView.setVisibility(View.VISIBLE);
-		isShowRightView(R.string.edit, true);
-	}
-
+	private HttpUtil http;
+	private Gson gson ;
+	
 	@OnClick(R.id.head_right)
 	public void headRightonClick(View v) {
 		String action = head_right.getText().toString().trim();
@@ -82,7 +85,12 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 
 	@OnClick(R.id.delect)
 	public void delectonClick(View v) {
+		int count = adapter.getCheckedSize();
+		if (count == 0){
+			showShortToast("请选择删除条目");
+		}else{
 		delectDialog();
+		}
 	}
 
 	@SuppressLint("ResourceAsColor")
@@ -98,37 +106,24 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 		setRightTextColor(R.color.white);
 
 		ViewUtils.inject(this);
-
-		addDatas();
-		setAdapter();
+        http = new HttpUtil(this);
+        http.setHttpCallBack(this);
+		gson = new Gson();
+        http.getCollect(BaseApplication.getUserName(), 3805);
 	}
 
 	private void setAdapter() {
+		isShowRightView(R.string.edit, true);
 		adapter = new MyCollectAdapter(this, datas);
 		listView.setAdapter(adapter);
 		adapter.setCount(this);
-	}
-
-	private void addDatas() {
-		// TODO Auto-generated method stub
-		datas = new ArrayList<MyCollectEntity>();
-		MyCollectEntity bean = new MyCollectEntity(R.drawable.car1, "开车前绕车检查",
-				"作为SUV车型，标志3008的排量2.0的动力性还是做够的，尽管放心。", false);
-		MyCollectEntity bean1 = new MyCollectEntity(R.drawable.car2, "开车前绕车检查",
-				"作为SUV车型，标志3008的排量2.0的动力性还是做够的，尽管放心。", false);
-		MyCollectEntity bean2 = new MyCollectEntity(R.drawable.car3, "开车前绕车检查",
-				"作为SUV车型，标志3008的排量2.0的动力性还是做够的，尽管放心。", false);
-
-		datas.add(bean);
-		datas.add(bean1);
-		datas.add(bean2);
 	}
 
 	@Override
 	public void getCount() {
 		// TODO Auto-generated method stub
 		int count = adapter.getCheckedSize();
-		if (count > 0) {
+		if (count > 0 && count != datas.size()) {
 			tv_delect.setText("删除(" + adapter.getCheckedSize() + ")");
 			tv_delect.setBackgroundResource(R.color.home_text_color);
 			tv_delect.setTextColor(getResources().getColor(R.color.white));
@@ -136,6 +131,11 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 			tv_delect.setText("删除");
 			tv_delect.setBackgroundResource(R.color.white);
 			tv_delect.setTextColor(getResources().getColor(R.color.need_666));
+		}else if(count == datas.size()){
+			tv_delect.setText("删除(" + adapter.getCheckedSize() + ")");
+			tv_all.setText("取消全选");
+			tv_delect.setBackgroundResource(R.color.home_text_color);
+			tv_delect.setTextColor(getResources().getColor(R.color.white));
 		}
 		isShowRightView(R.string.complete, true);
 	}
@@ -167,6 +167,7 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 
 			@Override
 			public void onClick(View v) {
+				String id = "";
 				Object[] checks = adapter.getCheckedSet();
 				int size = checks.length;
 				if (checks.length == 0) {
@@ -174,22 +175,74 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 				} else if (checks.length > 0) {
 					for (int i = checks.length - 1; i >= 0; i--) {
 						int index = ((Integer) checks[i]).intValue();
+						Log.e("tag", "index:"+datas.get(index).getId());
+						id += datas.get(index).getId()+".";
 						datas.remove(index);
 						adapter.setRemove(index);
 						Log.e("tag", ":" + index);
 					}
+					id = id.substring(0, id.length()-1);
+					Log.e("tag", "id:"+id);
+					http.collectDel(id);
 					adapter.notifyDataSetChanged();
-					showShortToast("删除成功");
 				}
 				if (datas.size() == 0) {
 					tv_null.setVisibility(View.VISIBLE);
 					listView.setVisibility(View.GONE);
 					linearLayout.setVisibility(View.GONE);
+					isShowRightView(R.string.null_tips, false);
 				}
 				getCount();
 				dialog.dismiss();
 			}
 		});
+	}
+
+	@Override
+	public void onFailure(int requestCode, HttpException arg0, String arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSuccess(int requestCode, ResponseInfo<String> arg0) {
+		// TODO Auto-generated method stub
+		String result = arg0.result;
+		String code;
+		JSONObject resultObject = null;
+		try {
+			 resultObject = new JSONObject(result);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		switch (requestCode) {
+		case 0:
+			Log.e("tag", result);
+			try {
+				code = resultObject.getString("code");
+				if(code.equals("200")){
+					try{
+					JSONArray dataArray = resultObject.getJSONArray("data");
+					datas = gson.fromJson(dataArray.toString(), new TypeToken<List<MyCollectEntity>>(){}.getType());
+				    setAdapter();
+					}catch(Exception e){
+						tv_null.setVisibility(View.VISIBLE);
+						listView.setVisibility(View.GONE);
+					}
+				}else{
+					showShortToast("失败");
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case 1:
+			Log.e("tag", "delect:"+result);
+			break;
+		default:
+			break;
+		}
 	}
 
 }

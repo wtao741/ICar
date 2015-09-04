@@ -38,8 +38,5 @@
         android:layout_marginRight="@dimen/dimen_24_dip"
         android:max="5"
         android:progress="1"
-         android:progressDrawable="@drawable/bg_seekbar"  
-        android:thumb="@drawable/thumb_bar"
-        android:background="@color/white"
         />
 </RelativeLayout>

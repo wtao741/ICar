@@ -98,4 +98,12 @@
         <item name="@android:windowEnterAnimation">@anim/viewin</item>
         <item name="@android:windowExitAnimation">@anim/viewout</item>
     </style>
+    
+     <style name="voiceDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+    </style>
 </resources>
