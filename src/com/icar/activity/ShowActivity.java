@@ -46,12 +46,12 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 		}else if (type.equals("search")){
 			classid = searchBean.getClassid();
 		}
-		//if(isCollect){
+		if(!isCollect){
 		   http.collect(BaseApplication.getUserName(), 3805, classid);
-//		}else{
-//			int[] ints = {classid};
-//			http.delectCollect(BaseApplication.getUserName(), 3805, ints);
-//		}
+		}else{
+			int[] ints = {classid};
+			http.delectCollect(BaseApplication.getUserName(), 3805, ints);
+		}
 	}
 	
 	@Override
@@ -70,14 +70,16 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 			bean = (InteriorControlEntity) bundle.getSerializable("bean");
 			url = "http://api.iucars.com/index.php?g=App&m=Api&a=getHtmlContent&seriesid=3805&classid="
 					+ bean.getClassid();
+			http.getCollectStatus(3805, bean.getClassid());
 			setTitle(bean.getName());
 		} else if (type.equals("search")) {
 			searchBean = (SearchEntity) bundle.getSerializable("bean");
 			url = "http://api.iucars.com/index.php?g=App&m=Api&a=getHtmlContent&seriesid=3805&classid="
 					+ searchBean.getClassid();
 			setTitle(searchBean.getClassname());
+			http.getCollectStatus(3805, bean.getClassid());
 		}
-
+        
 		setRightBackgorund(R.drawable.share_icon);
 		isShowCollect(true);
         isShowRightView(R.string.null_tips, true);
@@ -140,6 +142,15 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 			break;
 		case 1:
 			Log.e("tag", "delect");
+			break;
+		case 2:
+			if(result.equals("101")){
+				isCollect = true;
+				iv_collect.setImageResource(R.drawable.collection_click);
+			}else{
+				isCollect = false;
+				iv_collect.setImageResource(R.drawable.collection_normal);
+			}
 			break;
 		default:
 			break;

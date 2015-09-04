@@ -46,6 +46,27 @@ public class HttpUtil {
 	
 	
 	/**
+	 * 得到收藏状态
+	 * @param seriesid
+	 * @param classid
+	 */
+	public void getCollectStatus(int seriesid,int classid){
+		String url ="http://api.iucars.com/index.php?g=App&m=Api&a=collectStatus&mobile="+BaseApplication.getUserName()+"&seriesid="+seriesid+"&classid="+classid;
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				httpCallBack.onSuccess(2, arg0);
+			}
+		});
+	}
+	
+	/**
 	 * 油耗记录首页
 	 * @param mobile
 	 */
@@ -127,6 +148,29 @@ public class HttpUtil {
 		String url = "http://api.iucars.com/index.php?g=App&m=api&a=oilRecordList&mobile="+BaseApplication.getUserName();
 		tips.showLoadingDialog(context);
 		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 得到车辆使用满意度 
+	 */
+	public void getUserGrade(int seriesid){
+		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=userGradeInfo&mobile="+BaseApplication.getUserName()+"&seriesid="+seriesid;
+	    tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+	    	
 
 			@Override
 			public void onFailure(HttpException arg0, String arg1) {

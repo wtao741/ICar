@@ -3,7 +3,9 @@ package com.icar.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.graphics.LinearGradient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.icar.adapter.CarCommentAdapter;
 import com.icar.base.AbstractTitleActivity;
 import com.icar.base.BaseApplication;
 import com.icar.base.HeadClick;
+import com.icar.bean.CarCommentEntity;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.ViewUtils;
@@ -44,6 +47,8 @@ public class AddCarCommentActivity extends AbstractTitleActivity implements Head
 	
 	private HttpUtil http ;
 	private CarCommentAdapter adapter;
+	private int[] scores; 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -62,15 +67,17 @@ public class AddCarCommentActivity extends AbstractTitleActivity implements Head
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
 		
-		List<String> datas = new ArrayList<String>();
-		datas.add("油耗水平");
-		datas.add("车内空气质量");
-		datas.add("停车入位");
-		datas.add("空调效果");
-		datas.add("车内空间");
-		datas.add("车辆耐用度");
-		datas.add("维修保养");
-		datas.add("iUcars车震指数");
+		scores = getIntent().getExtras().getIntArray("score");
+		
+		List<CarCommentEntity> datas = new ArrayList<CarCommentEntity>();
+		datas.add(new CarCommentEntity("油耗水平",scores[0]));
+		datas.add(new CarCommentEntity("车内空气质量",scores[1]));
+		datas.add(new CarCommentEntity("停车入位",scores[2]));
+		datas.add(new CarCommentEntity("空调效果",scores[3]));
+		datas.add(new CarCommentEntity("车内空间",scores[4]));
+		datas.add(new CarCommentEntity("车辆耐用度",scores[5]));
+		datas.add(new CarCommentEntity("维修保养",scores[6]));
+		datas.add(new CarCommentEntity("iUcars车震指数",scores[7]));
 		
 		adapter = new CarCommentAdapter(this,datas);
 		listView.setAdapter(adapter);
@@ -98,6 +105,19 @@ public class AddCarCommentActivity extends AbstractTitleActivity implements Head
 	@Override
 	public void onSuccess(int requestCode, ResponseInfo<String> arg0) {
 		// TODO Auto-generated method stub
-		Log.e("Tag", arg0.result);
+		try {
+			JSONObject object = new JSONObject(arg0.result);
+			String code = object.getString("code");
+			if(code.equals("200")){
+				showShortToast("成功");
+			}else if(code.equals("202")){
+				showShortToast("已打过分");
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 }

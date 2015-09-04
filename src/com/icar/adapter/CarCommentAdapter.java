@@ -3,6 +3,7 @@ package com.icar.adapter;
 import java.util.List;
 
 import com.icar.activity.R;
+import com.icar.bean.CarCommentEntity;
 
 import android.content.Context;
 import android.util.Log;
@@ -16,18 +17,21 @@ import android.widget.TextView;
 
 public class CarCommentAdapter extends BaseAdapter {
 
-	private List<String> datas;
+	private List<CarCommentEntity> datas;
 
 	private Context context;
 
 	public int[] scores ;
 	
-	public CarCommentAdapter(Context context, List<String> datas) {
+	public CarCommentAdapter(Context context, List<CarCommentEntity> datas) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.datas = datas;
 		
-		scores = new int[]{5,5,5,5,5,5,5,5};
+		scores = new int[datas.size()];
+		for(int i=0;i<datas.size();i++){
+			scores[i] = datas.get(i).getScore();
+		}
 	}
 	
 	@Override
@@ -64,17 +68,10 @@ public class CarCommentAdapter extends BaseAdapter {
 		} else {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		viewHolder.tv_tips.setText(datas.get(position));
-        
-		String scoreStr = viewHolder.tv_score.getText().toString();
-		int score = 0;
-		try{
-			score = Integer.parseInt(scoreStr);
-		}catch(Exception e){
-			score = 0;
-		}
+		viewHolder.tv_tips.setText(datas.get(position).getTitle());
+		viewHolder.tv_score.setText(""+datas.get(position).getScore());
 		
-		viewHolder.bar.setProgress(score);
+		viewHolder.bar.setProgress(datas.get(position).getScore());
 		
 		viewHolder.bar
 				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -97,7 +94,6 @@ public class CarCommentAdapter extends BaseAdapter {
 						// TODO Auto-generated method stub
 						viewHolder.tv_score.setText("" + progress);
 						scores[position] = progress;
-						Log.e("tag", ""+progress+" "+scores[position]);
 					}
 				});
 		//scores[position] = Integer.parseInt(scoreStr);
@@ -110,7 +106,7 @@ public class CarCommentAdapter extends BaseAdapter {
 		public TextView tv_score;
 	}
 	
-	public int[] getScore(){
+	public int[] getScore(){      //不要在getView初始化scores
 		return scores;
 	}
 }
