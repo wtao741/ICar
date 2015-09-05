@@ -44,6 +44,54 @@ public class HttpUtil {
 		this.httpCallBack = httpCallBack;
 	}
 	
+	/**
+	 * 得到救援电话
+	 */
+	public void getResucePhone(){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=telListView&mobile="+BaseApplication.getUserName();
+		tips.showLoadingDialog(context);
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+	
+	/**
+	 * 添加救援电话
+	 */
+	public void addResucePhone(String name,String des,String tel){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=telListAdd";
+		tips.showLoadingDialog(context);
+		RequestParams params = new RequestParams();
+		params.addBodyParameter("mobile", BaseApplication.getUserName());
+		params.addBodyParameter("name", name);
+		params.addBodyParameter("description", des);
+		params.addBodyParameter("tel", tel);
+		httpUtils.send(HttpMethod.POST, url, params,new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				tips.dismissLoadingDialog();
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(1, arg0);
+			}
+		});
+	}
 	
 	/**
 	 * 得到收藏状态

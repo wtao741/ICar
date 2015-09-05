@@ -49,6 +49,22 @@
             android:text="@string/photo"
             android:textColor="@color/home_title_bgm"
             android:textSize="15sp" />
+        
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0.5_dip"
+            android:background="@color/border" />
+
+        <Button
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_65_dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="视屏"
+            android:textColor="@color/home_title_bgm"
+            android:textSize="15sp" />
     </LinearLayout>
 
 </RelativeLayout>

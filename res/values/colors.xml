@@ -77,5 +77,8 @@
     <color name="shake_icon_click">#442A3397</color>
     <color name="need_333">#333333</color>
     <color name="fault_bgm">#f3f3f3</color>
+    <color name="grid_state_focused">#80000000</color>
+    <color name="grid_state_pressed">#1Affffff</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
 
 </resources>

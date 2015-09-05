@@ -143,20 +143,27 @@
     <string name="Is_download_voice_click_later">Downloading the voice message, click later</string>
     <string name="recoding_fail">The recording failure, please try again！</string>
     <string name="release_to_cancel">Finger release to cancel sending</string>
-     <string name="Recording_without_permission">Recording without permission</string>
+    <string name="Recording_without_permission">Recording without permission</string>
     <string name="The_recording_time_is_too_short">The recording time is too short</string>
     <string name="send_failure_please">Send failure, please test whether the server connection</string>
     <string name="Move_into_blacklist_success">Move into blacklist success</string>
-     <string name="rcd_move_cancel">向上移动取消录音</string>
+    <string name="rcd_move_cancel">向上移动取消录音</string>
     <string name="rcd_up_cancel">松开手删除录音</string>
     <string name="check_sdcard">请检查SD卡是否挂载</string>
-     <string name="media_play_error">播放异常！</string>
-     <string name="chat_rcd_maxtime">录音的最大时长为30秒</string>
+    <string name="media_play_error">播放异常！</string>
+    <string name="chat_rcd_maxtime">录音的最大时长为30秒</string>
     <string name="rcd_video_time_hint">00:00</string>
-     <string name="network_bad">当前网络异常</string>
-      <string name="rcd_video_time">00:%1$s</string>
-      <string name="loading">加载中</string>
-      <string name="show_all">已显示全部内容</string>
+    <string name="network_bad">当前网络异常</string>
+    <string name="rcd_video_time">00:%1$s</string>
+    <string name="loading">加载中</string>
+    <string name="show_all">已显示全部内容</string>
+    <string name="Whether_to_send">Are you sure to send?</string>
+    <string name="The_video_to_start">The video to start</string>
+    <string name="ok">OK</string>
+    <string name="prompt">Prompt</string>
+    <string name="Open_the_equipment_failure">Open the equipment failure!</string>
+   <string name="temporary_does_not">Currently the video size greater than 10M is not supported!</string>
+   <string name="Video_footage">Video record</string>
     <string-array name="warn_light_title">
         <item>发送机故障</item>
         <item>点火警示灯</item>

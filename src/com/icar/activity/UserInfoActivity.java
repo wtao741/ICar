@@ -270,7 +270,8 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 		Button cancelBtn = (Button) v.findViewById(R.id.cancel);
 		Button photoBtn = (Button) v.findViewById(R.id.photo);
 		Button picBtn = (Button) v.findViewById(R.id.pic);
-
+		Button tv = (Button) v.findViewById(R.id.tv);
+		tv.setVisibility(View.GONE);
 		selectPicPopupWindow = new PopupWindow(v, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT, true);
 		selectPicPopupWindow.showAtLocation(findViewById(R.id.parent),
