@@ -46,6 +46,7 @@ import com.easemob.util.PathUtil;
 import com.icar.adapter.AccidentAdapter;
 import com.icar.base.AbstractTitleActivity;
 import com.icar.base.HeadClick;
+import com.icar.bean.ImageBean;
 import com.icar.datatimewheel.NumericWheelAdapter;
 import com.icar.datatimewheel.OnWheelScrollListener;
 import com.icar.datatimewheel.WheelView;
@@ -54,31 +55,44 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
-public class AccidentRecordActivity extends AbstractTitleActivity implements HeadClick{
+public class AccidentRecordActivity extends AbstractTitleActivity implements
+		HeadClick {
 
-	@ViewInject(R.id.date_select) ImageView iv_date; //选择日期
-	@ViewInject(R.id.date) TextView tv_date; //选择日期
-	@ViewInject(R.id.address_location) ImageView iv_location; //定位
-	@ViewInject(R.id.address) EditText et_address; //地址
-	@ViewInject(R.id.parent) View view;   //父类布局
-	@ViewInject(R.id.people1) EditText et_people1;
-	@ViewInject(R.id.people2) EditText et_people2;
-	@ViewInject(R.id.people3) EditText et_people3;
-	@ViewInject(R.id.mobile1) EditText et_mobile1;
-	@ViewInject(R.id.mobile2) EditText et_mobile2;
-	@ViewInject(R.id.mobile3) EditText et_mobile3;
-	@ViewInject(R.id.listView) HorizontalListView listView;
-	
+	@ViewInject(R.id.date_select)
+	ImageView iv_date; // 选择日期
+	@ViewInject(R.id.date)
+	TextView tv_date; // 选择日期
+	@ViewInject(R.id.address_location)
+	ImageView iv_location; // 定位
+	@ViewInject(R.id.address)
+	EditText et_address; // 地址
+	@ViewInject(R.id.parent)
+	View view; // 父类布局
+	@ViewInject(R.id.people1)
+	EditText et_people1;
+	@ViewInject(R.id.people2)
+	EditText et_people2;
+	@ViewInject(R.id.people3)
+	EditText et_people3;
+	@ViewInject(R.id.mobile1)
+	EditText et_mobile1;
+	@ViewInject(R.id.mobile2)
+	EditText et_mobile2;
+	@ViewInject(R.id.mobile3)
+	EditText et_mobile3;
+	@ViewInject(R.id.listView)
+	HorizontalListView listView;
+
 	@OnClick(R.id.date_select)
-	public void dateSelectonClick(View v){
+	public void dateSelectonClick(View v) {
 		showPopwindow(getDataPick());
 	}
-	
+
 	@OnClick(R.id.des)
-	public void desonClick(View v){
+	public void desonClick(View v) {
 		openActivity(AccidentDesActivity.class);
 	}
-	
+
 	private PopupWindow menuWindow;
 	private LayoutInflater inflater = null;
 	private WheelView year;
@@ -86,40 +100,39 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 	private WheelView day;
 	private WheelView hour;
 	private WheelView mins;
-	
+
 	private PopupWindow selectPicPopupWindow = null;
 
-	private List<String> icons = new ArrayList<String>();         // 上传图片数据
+	private List<ImageBean> icons = new ArrayList<ImageBean>(); // 上传图片数据
 	private AccidentAdapter adapter;
 
-	private static final int PIC = 1;   // 选择图片
-	private static final int PHO = 2;   // 照相
-	private static final int TV = 3;    // 视屏
-	private String picPath;             //获取到的图片路径
-	
-	private ContentResolver cr;      
+	private static final int PIC = 1; // 选择图片
+	private static final int PHO = 2; // 照相
+	private static final int TV = 3; // 视屏
+	private String picPath; // 获取到的图片路径
+
+	private ContentResolver cr;
 	private Uri photoUri;
-	
+	private Bitmap photo;// 选择好的图片的bitmap形式
 	private AccidentAdapter adpater;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
-		inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+		inflater = (LayoutInflater) this
+				.getSystemService(LAYOUT_INFLATER_SERVICE);
 		setContentView(R.layout.activity_accident_record);
 		setTitle("事故记录");
 		isShowLeftView(true);
 		isShowRightView(R.string.null_tips, false);
 		setHeadClick(this);
 		ViewUtils.inject(this);
-		
-		
+
 		adapter = new AccidentAdapter(this, icons);
 		listView.setAdapter(adapter);
 	}
-
 
 	/**
 	 * 加载发图的popupwindow,适配器中调用
@@ -134,7 +147,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 		Button photoBtn = (Button) v.findViewById(R.id.photo);
 		Button picBtn = (Button) v.findViewById(R.id.pic);
 		Button tvBtn = (Button) v.findViewById(R.id.tv);
-		
+
 		selectPicPopupWindow = new PopupWindow(v, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT, true);
 		selectPicPopupWindow.showAtLocation(findViewById(R.id.parent),
@@ -145,6 +158,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 
 			public void onClick(View v) {
 				takePhoto();
+				dismissPopupWindow();
 			}
 		});
 
@@ -152,16 +166,18 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 
 			public void onClick(View v) {
 				pickPhoto();
+				dismissPopupWindow();
 			}
 		});
-		
+
 		tvBtn.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(AccidentRecordActivity.this, ImageGridActivity.class);
+				Intent intent = new Intent(AccidentRecordActivity.this,
+						ImageGridActivity.class);
 				startActivityForResult(intent, TV);
+				dismissPopupWindow();
 			}
-
 		});
 
 		cancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -183,9 +199,9 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 
 	private void pickTv() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	/**
 	 * 照相
 	 */
@@ -209,21 +225,27 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 		}
 	}
 
-	public void  pickPhoto(){
+	public void pickPhoto() {
 		Intent intent = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 		startActivityForResult(intent, PIC);
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Log.e("Tag", requestCode+"  "+resultCode+"  "+data);
 		if (resultCode == Activity.RESULT_OK) {
-			if(requestCode != TV)
-			doPhoto(requestCode, data);
-			else{
+			if (requestCode != TV){
+				doPhoto(requestCode, data);
+			}
+			else {
+				Log.e("Tag", "tv");
 				int duration = data.getIntExtra("dur", 0);
 				String videoPath = data.getStringExtra("path");
-				File file = new File(PathUtil.getInstance().getImagePath(), "thvideo" + System.currentTimeMillis());
+				 Log.e("Tag", videoPath);
+				File file = new File(PathUtil.getInstance().getImagePath(),
+						"thvideo" + System.currentTimeMillis());
+				 Log.e("Tag", file.getAbsolutePath());
 				Bitmap bitmap = null;
 				FileOutputStream fos = null;
 				try {
@@ -232,13 +254,14 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 					}
 					bitmap = ThumbnailUtils.createVideoThumbnail(videoPath, 3);
 					if (bitmap == null) {
-						EMLog.d("chatactivity", "problem load video thumbnail bitmap,use default icon");
-						bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.app_panel_video_icon);
+						EMLog.d("chatactivity",
+								"problem load video thumbnail bitmap,use default icon");
+						bitmap = BitmapFactory.decodeResource(getResources(),
+								R.drawable.app_panel_video_icon);
 					}
 					fos = new FileOutputStream(file);
 
 					bitmap.compress(CompressFormat.JPEG, 100, fos);
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -256,18 +279,25 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 					}
 
 				}
-				//sendVideo(videoPath, file.getAbsolutePath(), duration / 1000);
-
+				  ImageBean bean = new ImageBean();
+                  bean.setPicPath(videoPath);
+                  bean.setType("1");
+                  //bean.setImgBitmap(bitmap);
+                  icons.add(0,bean);
+                  adapter.notifyDataSetChanged();
+				// sendVideo(videoPath, file.getAbsolutePath(), duration /
+				// 1000);
+                
 			}
-				
+
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 	private void doPhoto(int requestCode, Intent data) {
-        String path;
-		if (requestCode == PIC) // 从相册取图片，有些手机有异常情况，请注意
-		{
+		String path;
+		if (requestCode == PIC){ // 从相册取图片，有些手机有异常情况，请注意
+		
 			if (data == null) {
 				Toast.makeText(this, "选择图片文件出错", Toast.LENGTH_LONG).show();
 				return;
@@ -298,44 +328,31 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 						|| picPath.endsWith(".jpg") || picPath.endsWith(".JPG")
 						|| picPath.endsWith(".jpeg") || picPath
 							.endsWith(".JPEG"))) {
+			ImageBean imageBean = new ImageBean();
 			File f = new File(picPath);
 			long picSize = f.length();
-			long picMinSize = 1 * 1024 * 1024*2;
+			long picMinSize = 1 * 1024 * 1024 * 2;
+			Log.e("tag", picPath);
 			if (picSize > picMinSize) {
-				// Toast.makeText(this,"图片太大,请选择不超过2M的图片！",
-				// Toast.LENGTH_LONG).show();
-				// attachnames.add(compressPic(picPath,picMinSize));
-				// imageBean.setPicPath(compressPic(picPath,picMinSize).getPicPath());
-				path = compressPic(picPath, picMinSize);
+				imageBean = compressPic(picPath, picMinSize);
 			} else {
-				// attachnames.add(picPath);
-			path = picPath;
-				// if(photo != null){//如果不释放的话，不断取图片，将会内存不够
-				// photo.recycle();
-				// }
+				imageBean.setPicPath(picPath);
 				try {
-//					photo = BitmapFactory.decodeStream(cr
-//							.openInputStream(photoUri));
-					path = photoUri.getPath();
-//					if (photo != null) {
-//
-//						// ImageView img = new ImageView(this);
-//						// img.setLayoutParams(new
-//						// LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-//						// img.setScaleType(ScaleType.CENTER);
-//						// img.setImageBitmap(photo);
-//						// contentL.addView(img);
-//
-//						imageBean.setImgBitmap(photo);
-//
-//					}
+					photo = BitmapFactory.decodeStream(cr
+							.openInputStream(photoUri));
+					if (photo != null) {
+
+						imageBean.setImgBitmap(photo);
+
+					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-			icons.add(path);
-
+			imageBean.setType("0");
+			icons.add(0,imageBean);
+			adapter.notifyDataSetChanged();
 		} else {
 			Toast.makeText(this, "选择图片文件不正确", Toast.LENGTH_LONG).show();
 		}
@@ -348,10 +365,11 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 	 *            返回图片在手机中的地址
 	 * @return
 	 */
-	private String compressPic(String picPath, long picMinSize) {
+	private ImageBean compressPic(String picPath, long picMinSize) {
 
+		ImageBean imageBean = new ImageBean();
 		String newPicPath = Environment.getExternalStorageDirectory()
-				+ "/icar/except_chat/img/thumbnail" + "/" + "tmp_pic_"
+				+ "/mitbbsclub/except_chat/img/thumbnail" + "/" + "tmp_pic_"
 				+ SystemClock.currentThreadTimeMillis() + ".jpeg";
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
@@ -400,10 +418,12 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 
 		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());// 把压缩后的数据baos存放到ByteArrayInputStream中
 		Bitmap newBitmap = BitmapFactory.decodeStream(isBm, null, null);// 把ByteArrayInputStream数据生成图片
-		return newPicPath;
+		imageBean.setPicPath(newPicPath);
+		imageBean.setImgBitmap(newBitmap);
+		return imageBean;
 		// return newPicPath;
 	}
-	
+
 	@Override
 	public void left() {
 	}
@@ -412,24 +432,27 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 	public void right() {
 		openActivity(AddicentHistoryActivity.class);
 	}
-	
+
 	/**
 	 * 初始化popupWindow
+	 * 
 	 * @param view
 	 */
 	private void showPopwindow(View view) {
-		menuWindow = new PopupWindow(view,LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		menuWindow = new PopupWindow(view, LayoutParams.FILL_PARENT,
+				LayoutParams.WRAP_CONTENT);
 		menuWindow.setFocusable(true);
 		menuWindow.setBackgroundDrawable(new BitmapDrawable());
-		menuWindow.showAtLocation(view, Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 0);
+		menuWindow.showAtLocation(view, Gravity.CENTER_HORIZONTAL
+				| Gravity.BOTTOM, 0, 0);
 		menuWindow.setOnDismissListener(new OnDismissListener() {
 			@Override
 			public void onDismiss() {
-				menuWindow=null;
+				menuWindow = null;
 			}
 		});
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -437,27 +460,27 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 	private View getDataPick() {
 		Calendar c = Calendar.getInstance();
 		int curYear = c.get(Calendar.YEAR);
-		int curMonth = c.get(Calendar.MONTH) + 1;//通过Calendar算出的月数要+1
+		int curMonth = c.get(Calendar.MONTH) + 1;// 通过Calendar算出的月数要+1
 		int curDate = c.get(Calendar.DATE);
 		int currentHour = c.get(Calendar.HOUR);
 		int currentMins = c.get(Calendar.MINUTE);
-		
+
 		final View view = inflater.inflate(R.layout.timepick, null);
-		
+
 		year = (WheelView) view.findViewById(R.id.year);
-		year.setAdapter(new NumericWheelAdapter(1980, curYear+10));
+		year.setAdapter(new NumericWheelAdapter(1980, curYear + 10));
 		year.setLabel("年");
 		year.setCyclic(true);
 		year.addScrollingListener(scrollListener);
-		
+
 		month = (WheelView) view.findViewById(R.id.month);
 		month.setAdapter(new NumericWheelAdapter(1, 12));
 		month.setLabel("月");
 		month.setCyclic(true);
 		month.addScrollingListener(scrollListener);
-		
+
 		day = (WheelView) view.findViewById(R.id.day);
-		initDay(curYear,curMonth);
+		initDay(curYear, curMonth);
 		day.setLabel("日");
 		day.setCyclic(true);
 
@@ -465,24 +488,27 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 		hour.setAdapter(new NumericWheelAdapter(0, 23));
 		hour.setLabel("时");
 		hour.setCyclic(true);
-		
+
 		mins = (WheelView) view.findViewById(R.id.mins);
 		mins.setAdapter(new NumericWheelAdapter(0, 59));
 		mins.setLabel("分");
 		mins.setCyclic(true);
-		
-		
+
 		year.setCurrentItem(curYear - 1980);
 		month.setCurrentItem(curMonth - 1);
 		day.setCurrentItem(curDate - 1);
 		hour.setCurrentItem(currentHour);
 		mins.setCurrentItem(currentMins);
-		
+
 		Button bt = (Button) view.findViewById(R.id.set);
 		bt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String str = (year.getCurrentItem()+1980) + "-"+ (month.getCurrentItem()+1)+"-"+(day.getCurrentItem()+1)+"    "+(hour.getCurrentItem())+":"+(mins.getCurrentItem());
+				String str = (year.getCurrentItem() + 1980) + "-"
+						+ (month.getCurrentItem() + 1) + "-"
+						+ (day.getCurrentItem() + 1) + "    "
+						+ (hour.getCurrentItem()) + ":"
+						+ (mins.getCurrentItem());
 				tv_date.setText(str);
 				menuWindow.dismiss();
 			}
@@ -496,7 +522,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 		});
 		return view;
 	}
-	
+
 	OnWheelScrollListener scrollListener = new OnWheelScrollListener() {
 
 		@Override
@@ -509,7 +535,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements Hea
 			// TODO Auto-generated method stub
 			int n_year = year.getCurrentItem() + 1950;// 楠烇拷
 			int n_month = month.getCurrentItem() + 1;// 閺堬拷
-			initDay(n_year,n_month);
+			initDay(n_year, n_month);
 		}
 	};
 
