@@ -94,6 +94,29 @@ public class HttpUtil {
 	}
 	
 	/**
+	 * 删除救援电话
+	 * @param id
+	 */
+	public void delResucePhone(int id){
+		String url = "http://api.iucars.com/index.php?g=App&m=api&a=telListDel&id="+id;
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				Log.e("tag", arg1);
+				showShortToast(""+arg0.getExceptionCode());
+			}
+
+			@Override
+			public void onSuccess(ResponseInfo<String> arg0) {
+				// TODO Auto-generated method stub
+				httpCallBack.onSuccess(2, arg0);
+			}
+		});
+	}
+	
+	/**
 	 * 得到收藏状态
 	 * @param seriesid
 	 * @param classid

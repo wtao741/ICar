@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -58,25 +58,18 @@
     </style>
 
     <style name="dialog" parent="@android:style/Theme.Dialog">
-
-　　                        <item name="android:windowFrame">@null</item>
- <!-- 边框 -->
-  
-　　                        <item name="android:windowIsFloating">true</item>
- <!-- 是否浮现在activity之上 -->
-  
-　　                        <item name="android:windowIsTranslucent">false</item>
- <!-- 半透明 -->
-  
-　　                        <item name="android:windowNoTitle">true</item>
- <!-- 无标题 -->
-  
-　　                        <item name="android:background">@drawable/dialog_bgm</item>
- 
-　　                        <item name="android:windowBackground">@drawable/dialog_bgm</item>
- <!-- 背景透明 -->
- 
-　　                        <item name="android:backgroundDimEnabled">true</item>
+　　                                <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+　　                                <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+　　                                <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+　　                                <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+　　                                <item name="android:background">@drawable/dialog_bgm</item>
+　　                                <item name="android:windowBackground">@drawable/dialog_bgm</item>
+        <!-- 背景透明 -->
+　　                                <item name="android:backgroundDimEnabled">true</item>
         <!-- false背景色是亮的,true背景色是暗的 -->
     </style>
 
@@ -89,21 +82,22 @@
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
-     <!-- 辅助色（二级以下栏目顶部背景）/tab 背景色 -->
+    <!-- 辅助色（二级以下栏目顶部背景）/tab 背景色 -->
     <style name="assistSecondTitleBackColor" parent="android:Theme">
         <item name="android:background">#f7f7f7</item>
     </style>
-    
+
     <style name="bottom_popwindow" parent="android:Animation">
         <item name="@android:windowEnterAnimation">@anim/viewin</item>
         <item name="@android:windowExitAnimation">@anim/viewout</item>
     </style>
-    
-     <style name="voiceDialogStyle" parent="@android:style/Theme.Dialog">
+
+    <style name="voiceDialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <!-- 背景透明 -->
         <item name="android:backgroundDimEnabled">false</item>
         <!-- 模糊 -->
     </style>
+
 </resources>

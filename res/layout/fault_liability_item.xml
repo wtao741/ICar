@@ -41,7 +41,6 @@
             android:layout_toRightOf="@id/fault_icon"
             android:lineSpacingMultiplier="1.5"
             android:lines="2"
-            android:text="如果暴力不是为了杀戮那就毫无意义，即使剑是断的，整个局面我也能hold住"
             android:textColor="@color/home_title_bgm"
             android:textSize="13sp" />
         

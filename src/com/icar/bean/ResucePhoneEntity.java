@@ -5,30 +5,25 @@ public class ResucePhoneEntity {
 	private int id;
 	private String mobile; // 用户手机号
 	private String name;
-	private String des;
 	private String phoneNumber;
 
 	public ResucePhoneEntity() {
 		super();
 	}
 	
-	public ResucePhoneEntity(String mobile, String name, String des,
+	public ResucePhoneEntity(String mobile, String name,
 			String phoneNumber) {
 		super();
 		this.mobile = mobile;
 		this.name = name;
-		this.des = des;
 		this.phoneNumber = phoneNumber;
 	}
 
-
-
-	public ResucePhoneEntity(int id,String mobile,String name, String des, String phoneNumber) {
+	public ResucePhoneEntity(int id,String mobile,String name, String phoneNumber) {
 		super();
 		this.id = id;
 		this.mobile = mobile;
 		this.name = name;
-		this.des = des;
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -56,14 +51,6 @@ public class ResucePhoneEntity {
 		this.name = name;
 	}
 
-	public String getDes() {
-		return des;
-	}
-
-	public void setDes(String des) {
-		this.des = des;
-	}
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -71,4 +58,12 @@ public class ResucePhoneEntity {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "ResucePhoneEntity [id=" + id + ", mobile=" + mobile + ", name="
+				+ name + ", phoneNumber=" + phoneNumber + "]";
+	}
+	
+
 }

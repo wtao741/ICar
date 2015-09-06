@@ -1,32 +1,22 @@
 package com.icar.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PowerManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.easemob.EMError;
-import com.easemob.util.VoiceRecorder;
+import com.easemob.chat.MessageBody;
+import com.icar.adapter.MsgAdapter;
 import com.icar.base.AbstractTitleActivity;
 import com.icar.base.BaseApplication;
-import com.icar.utils.CommonUtils;
+import com.icar.bean.Msg;
 import com.icar.utils.DateUtil;
 import com.icar.utils.SystemUtil;
 import com.icar.view.PullListView;
@@ -54,14 +44,24 @@ public class AccidentDesActivity extends AbstractTitleActivity {
 	private InputMethodManager manager;
 	private RecordVoiceDialog mRcdVoiceDialog;
 	public String playMsgId;
-
+    private List<Msg> datas = new ArrayList<Msg>();
+	private MsgAdapter adapter;
+      
 	@OnClick(R.id.btn_send)
 	public void btnSendonClick(View v){
 		String message = et_message.getText().toString();
 		if(message.length() == 0){
 			showShortToast("请输入内容");
+			return ;
 		}else{
+			Msg msg = new Msg();
+			msg.setContent(message);
+			msg.setMsgType(1);
+			msg.setUser(BaseApplication.getUserName());
+			datas.add(msg);
 			
+			adapter = new MsgAdapter(this, datas);
+			adapter.notifyDataSetChanged();
 		}
 	}
 	
@@ -93,6 +93,7 @@ public class AccidentDesActivity extends AbstractTitleActivity {
 						// MsgType.MSG_TYPE_VOICE, mUser.getUser_id(),
 						// mFriend.getUser_id(), null, rcdTime, fileName);
 						Log.e("tag", "onSuccess");
+						Log.e("tag", fileName);
 						if (rcdTime >= 30 * 1000)
 							SystemUtil
 									.ToastMessageLong(R.string.chat_rcd_maxtime);

@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -82,7 +84,9 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 	EditText et_mobile3;
 	@ViewInject(R.id.listView)
 	HorizontalListView listView;
-
+	@ViewInject(R.id.accident_photo)
+	TextView tv_photo_count; // 选择图片数量
+	
 	@OnClick(R.id.date_select)
 	public void dateSelectonClick(View v) {
 		showPopwindow(getDataPick());
@@ -132,6 +136,9 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 
 		adapter = new AccidentAdapter(this, icons);
 		listView.setAdapter(adapter);
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		tv_date.setText(format.format(new Date()));
 	}
 
 	/**
@@ -197,11 +204,6 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 		}
 	}
 
-	private void pickTv() {
-		// TODO Auto-generated method stub
-
-	}
-
 	/**
 	 * 照相
 	 */
@@ -225,6 +227,9 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 		}
 	}
 
+	/**
+	 * 从相册中选择图片
+	 */
 	public void pickPhoto() {
 		Intent intent = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -285,6 +290,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
                   //bean.setImgBitmap(bitmap);
                   icons.add(0,bean);
                   adapter.notifyDataSetChanged();
+                  setPhotoCount();
 				// sendVideo(videoPath, file.getAbsolutePath(), duration /
 				// 1000);
                 
@@ -353,6 +359,7 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 			imageBean.setType("0");
 			icons.add(0,imageBean);
 			adapter.notifyDataSetChanged();
+			setPhotoCount();
 		} else {
 			Toast.makeText(this, "选择图片文件不正确", Toast.LENGTH_LONG).show();
 		}
@@ -580,5 +587,9 @@ public class AccidentRecordActivity extends AbstractTitleActivity implements
 	 */
 	private void initDay(int arg1, int arg2) {
 		day.setAdapter(new NumericWheelAdapter(1, getDay(arg1, arg2), "%02d"));
+	}
+	
+	public void setPhotoCount(){
+		tv_photo_count.setText("现场照片("+icons.size()+")");
 	}
 }

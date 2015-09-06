@@ -93,10 +93,11 @@ public class RecordVoiceDialog extends Dialog {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// if(true){}
-				if (!SystemUtil.isExitsSdcard()){
+				if (!SystemUtil.isExitsSdcard()) {
 					if (event.getAction() == MotionEvent.ACTION_DOWN
 							&& actionDownCount == 1) {
-						SystemUtil.ToastMessageShort(R.string.Send_voice_need_sdcard_support);
+						SystemUtil
+								.ToastMessageShort(R.string.Send_voice_need_sdcard_support);
 						actionDownCount++;
 					} else if (event.getAction() == MotionEvent.ACTION_UP) {
 						actionDownCount = 1;
@@ -108,13 +109,12 @@ public class RecordVoiceDialog extends Dialog {
 					mBtnXY[1] = event.getRawY();
 					// v.setBackgroundResource(R.drawable.chat_voice_rcd_btn_press);
 
-					if (!(canStart=mOnRecordVoiceListener.mayStart())) {
+					if (!(canStart = mOnRecordVoiceListener.mayStart())) {
 
 						return false;
 					}
 					if (BaseApplication.getInstance().getAudioPlayTask() != null) {
-						BaseApplication.getInstance().getAudioPlayTask()
-								.stop();
+						BaseApplication.getInstance().getAudioPlayTask().stop();
 					}
 					mRecorder = getAudioRecord();
 					mRecorder.start();

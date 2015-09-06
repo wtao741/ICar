@@ -57,7 +57,6 @@ public class ResucePhoneAdapter extends BaseAdapter {
 		
 		ResucePhoneEntity bean = datas.get(position);
 		viewHolder.tv_name.setText(bean.getName());
-		viewHolder.tv_des.setText(bean.getDes());
 		viewHolder.tv_phone.setText(bean.getPhoneNumber());
 		return convertView;
 	}

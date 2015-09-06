@@ -64,6 +64,8 @@ public class BaseApplication extends Application {
 
 	public static String hotline = ""; // 客服电话
 
+	public static String myLikeIcon = "";
+	
 	/* 当前音频播放器 */
 	private AudioPlayTask mAudioPlayTask;
 

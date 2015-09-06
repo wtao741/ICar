@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -67,6 +66,14 @@ public class FaultLiabilityActivity extends AbstractTitleActivity {
 				final ImageView iv = helper.getView(R.id.fault_icon_right);
 				final TextView tv = helper.getView(R.id.fault_des);
 				final RelativeLayout rela = helper.getView(R.id.fault_real);
+
+				int len = item.getDes().length();
+				if(len < 30){
+					iv.setVisibility(View.INVISIBLE);
+				}else{
+					iv.setVisibility(View.VISIBLE);
+				}
+				
 				iv.setOnClickListener(new OnClickListener() {
 
 					@Override

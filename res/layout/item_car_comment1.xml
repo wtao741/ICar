@@ -36,11 +36,14 @@
         android:layout_toLeftOf="@id/score"
         android:layout_marginTop="@dimen/dimen_10_dip"
         android:layout_marginRight="@dimen/dimen_24_dip"
+        android:paddingLeft="@dimen/dimen_30_dip"
+        android:paddingRight="@dimen/dimen_30_dip"
         android:max="5"
         android:progress="1"
-        android:progressDrawable="@drawable/bg_seekbar1"
-        android:thumb="@null"
+        android:maxHeight="15dp"
+        android:progressDrawable="@drawable/tt"
         android:clickable="false"
         android:layout_alignTop="@id/score"
+        android:thumb="@drawable/thumb_dn"
         />
 </RelativeLayout>

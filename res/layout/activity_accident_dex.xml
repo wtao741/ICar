@@ -77,7 +77,6 @@
                     android:background="@drawable/white_shape_conner"
                     android:maxLines="3"
                     android:minHeight="40dp"
-                    android:onClick="editClick"
                     android:paddingBottom="3dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="1dp"

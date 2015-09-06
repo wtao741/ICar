@@ -53,8 +53,8 @@
                 android:id="@+id/home_viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_257_dip"
-                android:layout_marginLeft="@dimen/dimen_48_dip"
-                android:layout_marginRight="@dimen/dimen_48_dip"
+                android:layout_marginLeft="@dimen/dimen_30_dip"
+                android:layout_marginRight="@dimen/dimen_30_dip"
                 android:layout_marginTop="@dimen/dimen_31_dip" />
 
             <LinearLayout

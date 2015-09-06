@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+    
+    <ImageView 
+        android:id="@+id/msg_iv"
+        android:layout_width="@dimen/dimen_46_dip"
+        android:layout_height="@dimen/dimen_46_dip"
+        android:layout_marginLeft="@dimen/dimen_22_dip"
+        android:layout_marginTop="@dimen/dimen_31_dip"
+        android:background="@drawable/border"
+        android:src="@drawable/car1"
+        />
+    
+    <TextView 
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_46_dip"
+        android:paddingLeft="@dimen/dimen_15_dip"
+        android:paddingRight="@dimen/dimen_30_dip"
+        android:layout_centerVertical="true"
+        android:text="fskafksdhafsdaf"
+        android:textColor="@color/home_title_bgm"
+        android:layout_toRightOf="@id/msg_iv"
+        android:layout_marginLeft="@dimen/dimen_14_dip"
+        />
+    
+    <TextView 
+        android:id="@+id/msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_46_dip"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/msg"
+        android:layout_marginLeft="@dimen/dimen_15_dip"
+        />
+</RelativeLayout>

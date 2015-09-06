@@ -318,6 +318,7 @@ public class HomeActivity extends Activity implements HttpCallBack {
 	}
 
 	public void initView() {
+		BaseApplication.myLikeIcon = logoicon;
 		imageLoader.displayImage(logoicon, iv_type_icon, options);
 		tv_type_name.setText(seriesname);
 		tv_comment.setText(satdegree + "/40分");

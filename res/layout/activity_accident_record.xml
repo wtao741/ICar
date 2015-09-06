@@ -43,7 +43,6 @@
                 android:layout_toLeftOf="@id/date_select"
                 android:background="@drawable/white_shape"
                 android:gravity="center"
-                android:hint="2015-02-15 32:54"
                 android:textColor="@color/home_title_bgm"
                 android:textColorHint="@color/need_666"
                 android:textSize="15sp" />

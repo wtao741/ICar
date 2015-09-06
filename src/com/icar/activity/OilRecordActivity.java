@@ -8,9 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import com.icar.base.BaseApplication;
 import com.icar.bean.OilRecordEntity;
 import com.icar.utils.HttpCallBack;
@@ -143,6 +140,14 @@ public class OilRecordActivity extends Activity implements HttpCallBack {
 			str6[i] = datas.get(2).get(i).getChargeoil();
 		}
 
+		for(String temp : str3){
+			Log.e("tag", temp);
+		}
+		
+		for(String temp:str4){
+			Log.e("tag", temp);
+		}
+		
 		for (int i = 0; i < datas.size(); i++) {
 			ArrayList<OilRecordEntity> list = datas.get(i);
 			for (int j = 0; j < list.size(); j++) {
@@ -156,28 +161,29 @@ public class OilRecordActivity extends Activity implements HttpCallBack {
 		
 		for (int i = 0; i < 3; i++) {
 			webView = new WebView(this);
+			//file:///android_asset/itjs2.html
+			webView.loadUrl("www.baidu.com");
 			WebSettings webSettings = webView.getSettings();
 	        webSettings.setJavaScriptEnabled(true);
 			if (i == 0) {
 //				webView.addJavascriptInterface(new DemoJavaScriptInterface(
 //						str1, str2), "demo");
-				webView.loadUrl("javascript:getParam("
-						+ BaseApplication.WIDTH + "," + str1 + "," + str2
-						+ ")");// 调用js函数
+				webView.loadUrl("javascript:getParam('"
+						+ BaseApplication.WIDTH + "','" + str1 + "','" + str2
+						+ "')");// 调用js函数
 			} else if (i == 1) {
 //				webView.addJavascriptInterface(new DemoJavaScriptInterface(
 //						str3, str4), "demo");
-				webView.loadUrl("javascript:getParam("
-						+ BaseApplication.WIDTH + "," + str3 + "," + str4
-						+ ")");// 调用js函数
+				webView.loadUrl("javascript:getParam('"
+						+ BaseApplication.WIDTH + "','" + str3 + "','" + str4
+						+ "')");// 调用js函数
 			} else if (i == 2) {
 //				webView.addJavascriptInterface(new DemoJavaScriptInterface(
 //						str5, str6), "demo");
-				webView.loadUrl("javascript:getParam("
-						+ BaseApplication.WIDTH + "," + str5 + "," + str6
-						+ ")");// 调用js函数
+				webView.loadUrl("javascript:getParam('"
+						+ BaseApplication.WIDTH + "','" + str5 + "','" + str6
+						+ "')");// 调用js函数
 			}
-			webView.loadUrl("file:///android_asset/itjs2.html");
 			views.add(webView);
 		}
 	}
