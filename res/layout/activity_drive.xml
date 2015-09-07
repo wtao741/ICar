@@ -11,7 +11,7 @@
        android:layout_height="match_parent"
        android:divider="@color/border"
        android:dividerHeight="@dimen/dimen_0.5_dip"
-       android:listSelector="@color/bgm_click"
+       android:listSelector="@drawable/white"
        android:headerDividersEnabled="false"
        android:footerDividersEnabled="true"
        />

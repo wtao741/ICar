@@ -200,10 +200,12 @@ public class RegisterActivity extends AbstractTitleActivity implements
 	@Override
 	public void onSuccess(int requestCode,ResponseInfo<String> arg0) {
 		String result = arg0.result;
+		
 		Log.e("auth", result);
 		if (result.equals("200")) {
 			showShortToast("请求验证码成功");
 			timer.start();
+			et_auth.requestFocus();
 		} else if (result.equals("201")) {
 			showShortToast("该号码已注册，请重试");
 		} else {

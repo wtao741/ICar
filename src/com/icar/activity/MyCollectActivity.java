@@ -186,12 +186,7 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 					http.collectDel(id);
 					adapter.notifyDataSetChanged();
 				}
-				if (datas.size() == 0) {
-					tv_null.setVisibility(View.VISIBLE);
-					listView.setVisibility(View.GONE);
-					linearLayout.setVisibility(View.GONE);
-					isShowRightView(R.string.null_tips, false);
-				}
+				
 				getCount();
 				dialog.dismiss();
 			}
@@ -217,7 +212,7 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 		}
 		switch (requestCode) {
 		case 0:
-			Log.e("tag", result);
+			Log.e("tag", "get:"+result);
 			try {
 				code = resultObject.getString("code");
 				if(code.equals("200")){
@@ -239,6 +234,12 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 			break;
 		case 1:
 			Log.e("tag", "delect:"+result);
+			if (datas.size() == 0) {
+				tv_null.setVisibility(View.VISIBLE);
+				listView.setVisibility(View.GONE);
+				linearLayout.setVisibility(View.GONE);
+				isShowRightView(R.string.null_tips, false);
+			}
 			break;
 		default:
 			break;

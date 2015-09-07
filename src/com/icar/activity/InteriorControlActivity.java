@@ -121,7 +121,7 @@ public class InteriorControlActivity extends AbstractTitleActivity implements Ht
 
 	@Override
 	public void onSuccess(int requestCode,ResponseInfo<String> arg0) {
-		// TODO Auto-generated method stub
+        Log.e("tag", arg0.result);
 		String result = arg0.result;
 		try {
 			JSONObject object = new JSONObject(result);

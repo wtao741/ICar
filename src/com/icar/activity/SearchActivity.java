@@ -16,6 +16,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,7 +24,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -52,6 +54,13 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 	@ViewInject(R.id.no_search)
 	TextView tv_no;
 
+	@OnClick(R.id.search_referch)
+	public void searchReferchonClick(View v){
+		iv_refersh.setAnimation(refershAnim);
+		refershAnim.start();
+		http.hotSearch(2859);
+	}
+	
 	private HotSearchAdapter hotSearchAdapter;
      
 	
@@ -60,6 +69,8 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 	private String[] strs = { "美女车震", "罗生门" };
 
 	private HttpUtil http ; 
+	
+	private Animation refershAnim;   //刷新动画
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +88,8 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 		http.setHttpCallBack(this);
 		http.hotSearch(2859);
 		
+		refershAnim = AnimationUtils.loadAnimation(this, R.anim.search_refersh);
+		
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -89,6 +102,8 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 				startActivity(intent);
 			}
 		});
+		
+		
 	}
 
 	private void setHistoryAdapter() {
@@ -170,6 +185,7 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		refershAnim.cancel();
 	}
 	
 	public void setAdapter(){

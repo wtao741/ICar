@@ -76,7 +76,8 @@ public class ResucePhoneActivity extends AbstractTitleActivity implements
 	}
 
 	ResucePhoneEntity bean;
-
+    private int delPosition;
+	
 	@OnClick(R.id.dialog_submit)
 	public void dialogSubmitonClick(View v) {
 		String nameStr = et_add_name.getText().toString().trim();
@@ -135,6 +136,7 @@ public class ResucePhoneActivity extends AbstractTitleActivity implements
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				delPosition = position;
 				showDelDialog(datas.get(position).getId());
 				return true;
 			}
@@ -221,10 +223,29 @@ public class ResucePhoneActivity extends AbstractTitleActivity implements
 			} catch (Exception e) {
 				Log.e("tag", e.getMessage());
 			}
+			if(datas.size() == 1){
+				listView.setVisibility(View.VISIBLE);
+				tv_noData.setVisibility(View.GONE);
+			}
 			adapter.notifyDataSetChanged();
 			break;
 		case 2:
             Log.e("tag", arg0.result);
+            String result2 = arg0.result;
+            try {
+				JSONObject object2 = new JSONObject(result2);
+				String code2 = object2.getString("code");
+				if(code2.equals("200")){
+					showShortToast("删除成功");
+					datas.remove(delPosition);
+					adapter.notifyDataSetChanged();
+				}else if(code2.equals("201")){
+					showShortToast("删除失败");
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             delDialog.dismiss();
 			break;
 		default:

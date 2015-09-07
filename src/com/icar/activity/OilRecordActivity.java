@@ -162,7 +162,7 @@ public class OilRecordActivity extends Activity implements HttpCallBack {
 		for (int i = 0; i < 3; i++) {
 			webView = new WebView(this);
 			//file:///android_asset/itjs2.html
-			webView.loadUrl("www.baidu.com");
+			webView.loadUrl("http://www.baidu.com");
 			WebSettings webSettings = webView.getSettings();
 	        webSettings.setJavaScriptEnabled(true);
 			if (i == 0) {

@@ -392,7 +392,9 @@ public class HttpUtil {
 	 */
 	public void getCollect(String mobile,int seriesid){
 		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=collectList&mobile="+mobile+"&seriesid="+seriesid;
-	    tips.showLoadingDialog(context);
+	    Log.e("tag", "collect");
+		tips.showLoadingDialog(context);
+		httpUtils.sHttpCache.clear();
 	    httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
 
 			@Override
@@ -828,6 +830,7 @@ public class HttpUtil {
 	public void hotSearch(int seriesid){
 		String url = "http://api.iucars.com/index.php?g=App&m=Api&a=http://api.iucars.com/index.php?g=App&m=Api&a=searchHot&seriesid="+seriesid;
 		tips.showLoadingDialog(context);
+		httpUtils.sHttpCache.clear();
 		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
 
 			@Override

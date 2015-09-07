@@ -60,7 +60,8 @@
                 android:textColorHint="@color/need_666"
                 android:paddingLeft="@dimen/dimen_16_dip"
                 android:textSize="12sp"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:inputType="number" />
         </LinearLayout>
     </LinearLayout>
 
