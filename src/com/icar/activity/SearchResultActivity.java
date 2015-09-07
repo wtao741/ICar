@@ -9,9 +9,13 @@ import org.json.JSONObject;
 
 import com.icar.adapter.SearchResultAdapter;
 import com.icar.bean.SearchEntity;
+import com.icar.bean.SearchHistoryEntity;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
+import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -47,8 +51,8 @@ public class SearchResultActivity extends Activity implements HttpCallBack {
 
 	private List<SearchEntity> datas = new ArrayList<SearchEntity>();
 
-	private HttpUtil http;
-
+	private HttpUtil http;   //网络
+    private DbUtils db;      //数据库
 	private String keys;
 
 	@Override
@@ -67,6 +71,9 @@ public class SearchResultActivity extends Activity implements HttpCallBack {
 		http.homeSearch(2859, keys);
 
 		setClick();
+		
+		db = DbUtils.create(this);
+		save(keys);
 	}
 
 	private void setClick() {
@@ -80,6 +87,7 @@ public class SearchResultActivity extends Activity implements HttpCallBack {
 					String key = editText.getText().toString().trim();
 					Log.e("tag", key);
 					http.homeSearch(2859, key);
+					save(keys);
 					listView.setVisibility(View.VISIBLE);
 					tv_null.setVisibility(View.GONE);
 					return true;
@@ -89,6 +97,30 @@ public class SearchResultActivity extends Activity implements HttpCallBack {
 		});
 	}
 
+	
+	/**保存数据到数据库
+	 * @param keys
+	 */
+	public void save(String keys){
+		Log.e("tag", "keys:"+keys);
+		SearchHistoryEntity bean = new SearchHistoryEntity();
+		bean.setMsg(keys);
+		List<SearchHistoryEntity> datas;
+		try {
+			datas = db.findAll(Selector.from(SearchHistoryEntity.class).where("msg", "=", keys));
+			if(datas.size() == 0){
+				Log.e("tag", "null");
+				db.save(bean);
+			}else{
+				Log.e("tag", "save:"+datas.size());
+			}
+		} catch (DbException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Log.e("tag", "save");
+	}
+	
 	@Override
 	public void onFailure(int requestCode, HttpException arg0, String arg1) {
 		// TODO Auto-generated method stub

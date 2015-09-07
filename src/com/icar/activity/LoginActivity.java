@@ -158,12 +158,19 @@ public class LoginActivity extends AbstractTitleActivity implements HeadClick,Ht
 				BaseApplication.USER_NAME = userObject.getString("nickname");
 				BaseApplication.ADDRESS = userObject.getString("cityname");
 				BaseApplication.SEX = userObject.getString("sex");
-				BaseApplication.HEAD_IMG = "http://api.iucars.com/"+userObject.getString("avatar");
+				String url = userObject.getString("avatar");
+				url = url.replace("./", "/");
+				BaseApplication.user.setHead_url("http://api.iucars.com"+url);
 				BaseApplication.user.setName(user);
 				BaseApplication.user.setUserName(userObject.getString("nickname"));
 				BaseApplication.user.setCity(userObject.getString("cityname"));
-				BaseApplication.user.setHead_url(userObject.getString("avatar"));
-				BaseApplication.user.setUserSex(userObject.getString("sex"));
+				String sex = userObject.getString("sex");
+				if(sex.equals("1")){
+					sex = "男";
+				}else{
+					sex = "女";
+				}
+				BaseApplication.user.setUserSex(sex);
 				BaseApplication.user.setPassword(password);
 				finish();
 			}else if(result.equals("0")){

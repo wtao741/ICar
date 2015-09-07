@@ -153,7 +153,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/register_other_tips1"
             android:textColor="@color/home_text_color"
             android:textSize="12sp" />
 

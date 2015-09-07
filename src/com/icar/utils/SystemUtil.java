@@ -8,6 +8,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 public class SystemUtil {
@@ -16,6 +17,7 @@ public class SystemUtil {
 	private static SystemUtil util = new SystemUtil();
 	private static final String APP_DIR = "/icar/";
 	private static final String CHAT = "chat/";
+	private static final String EXCEPT_CHAT = "except_chat/";
 	private static final String SDCARD_DIR = Environment
 			.getExternalStorageDirectory().getAbsolutePath();
 	
@@ -135,5 +137,15 @@ public class SystemUtil {
 		}
 
 		return ShortStr;
+	}
+	
+	public static String getImgThumbnailDirExceptChat() {
+		String path = SDCARD_DIR + APP_DIR + EXCEPT_CHAT + "img/thumbnail/";
+		Log.e("getImgThumbnailDirExceptChat", "Bitmap-path--->"+path);
+		File file = new File(path);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		return path;
 	}
 }

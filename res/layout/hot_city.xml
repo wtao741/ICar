@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimen_22_dip"
+            android:layout_marginLeft="15dp"
             android:text="@string/location_city"
             android:textColor="#c1c1c1"
             />

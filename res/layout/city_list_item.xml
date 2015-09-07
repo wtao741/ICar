@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dip"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/city_list_item_linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5_dip"
+        android:background="@color/border" />
+
+    <TextView
+        android:id="@+id/alpha"
+        android:layout_width="fill_parent"
+        android:layout_height="25dip"
+        android:paddingBottom="2dip"
+        android:paddingLeft="13dip"
+        android:paddingTop="2dip"
+        android:textColor="#9d9b9c"
+        android:text="sdafd"
+        android:textSize="14sp"
+        android:background="@color/bgm"
+        android:visibility="gone"/>
+
+    <View
+        android:id="@+id/city_list_item_linear_3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="15dp"
+        android:background="#ECECEC" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dip"
+        android:textColor="#404141"
+        android:textSize="18dp" />
+    <View
+        android:id="@+id/city_list_item_linear_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0.5_dip"
+        android:background="@color/border"
+        android:layout_marginLeft="12dp" />
+</LinearLayout>

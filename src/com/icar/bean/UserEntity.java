@@ -8,7 +8,7 @@ public class UserEntity {
 	private String userName; // 用户名
 	private String userSex; // 用户性别
 	private String city; // 用户地址
-	private int cityId;
+	private String cityId;
 	
 	public String getName() {
 		return name;
@@ -46,10 +46,10 @@ public class UserEntity {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getCityId() {
+	public String getCityId() {
 		return cityId;
 	}
-	public void setCityId(int cityId) {
+	public void setCityId(String cityId) {
 		this.cityId = cityId;
 	}
 }

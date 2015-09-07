@@ -28,6 +28,13 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
+     <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
     <application
         android:name="com.icar.base.BaseApplication"
         android:allowBackup="true"
@@ -211,6 +218,9 @@
         <activity
             android:name=".AccidentProcessActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name=".UserProtocolActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AccidentDesActivity"
             android:screenOrientation="portrait"
@@ -227,6 +237,16 @@
             android:name=".ImageGridActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
+        
+        <activity
+            android:name=".CitySelectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        
+         <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
     </application>
 
 </manifest>

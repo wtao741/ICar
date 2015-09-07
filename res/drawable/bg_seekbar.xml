@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-     <!-- 背景图 -->
-    <item android:id="@+android:id/background" android:drawable="@drawable/seekbar_dn" />
+
+    <!-- 背景图 -->
+    <item
+        android:id="@+android:id/background">
+        <scale  android:drawable="@drawable/comment1"
+            android:scaleWidth="100%"/>
+        </item>
     <!-- 第二进度图 -->
     <!-- 进度度 -->
-    <item android:id="@+android:id/progress" android:drawable="@drawable/seekbar_up" />
+    <item android:id="@+android:id/progress">
+        <scale
+            android:drawable="@drawable/comment2"
+            android:scaleWidth="100%" />
+    </item>
 
 </layer-list>

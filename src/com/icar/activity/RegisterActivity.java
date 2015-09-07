@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * @author gisdom
@@ -47,6 +48,10 @@ public class RegisterActivity extends AbstractTitleActivity implements
 	Button bt_auth;
 	@ViewInject(R.id.login_login)
 	Button bt_register;
+	@ViewInject(R.id.login_other_tips)
+	TextView tv_tips;
+	@ViewInject(R.id.login_other_tips2)
+	TextView tv_tips1;
 
 	@OnClick(R.id.register_auth)
 	public void registerAuthonClick(View v) {
@@ -92,6 +97,16 @@ public class RegisterActivity extends AbstractTitleActivity implements
 		}
 	}
 
+	@OnClick(R.id.login_other_tips1)
+	public void loginOtherTips1onClick(View v){
+		openActivity(UserProtocolActivity.class);
+	}
+	
+	@OnClick(R.id.login_other_tips2)
+	public void loginOtherTips2onClick(View v){
+		openActivity(UserProtocolActivity.class);
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -200,7 +215,6 @@ public class RegisterActivity extends AbstractTitleActivity implements
 	@Override
 	public void onSuccess(int requestCode,ResponseInfo<String> arg0) {
 		String result = arg0.result;
-		
 		Log.e("auth", result);
 		if (result.equals("200")) {
 			showShortToast("请求验证码成功");

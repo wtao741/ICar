@@ -36,7 +36,6 @@ public class UserNameActivity extends Activity{
 		setResult(RESULT_OK, intent);
 		http.updateUserInfo("nickname", name);
 		finish();
-		
 	}
 	
 	@Override

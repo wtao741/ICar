@@ -48,7 +48,11 @@ public class ICarActivity extends AbstractTitleActivity {
 
 	@OnClick(R.id.icar_real_mycollect)
 	public void icarRealMycollectonClick(View v) {
-		openActivity(MyCollectActivity.class);
+		if(BaseApplication.getUserName().length() == 0){
+			openActivity(LoginActivity.class);
+		}else{
+		    openActivity(MyCollectActivity.class);
+		}
 	}
 
 	@OnClick(R.id.icar_real_mysetting)

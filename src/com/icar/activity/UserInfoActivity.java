@@ -25,13 +25,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.icar.base.AbstractTitleActivity;
 import com.icar.base.BaseApplication;
 import com.icar.base.HeadClick;
+import com.icar.bean.City;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
+import com.icar.utils.ImageDownloader;
 import com.icar.view.RoundImageView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -42,27 +43,29 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class UserInfoActivity extends AbstractTitleActivity implements
-		HeadClick,HttpCallBack {
+		HeadClick, HttpCallBack {
 
 	private static final int ONE = 1;
 	private static final int TWO = 2;
 	private static final int THERE = 3;
 	private static final int FOUR = 4;
 	private static final int FIVE = 5;
+	private static final int ADDRESS_REQUESTCODE = 10087;
 	private int crop = 300;
 	private PopupWindow selectPicPopupWindow = null;
-	private Uri imageUri;//to store the big bitmap
+	private Uri imageUri;// to store the big bitmap
 	private static final String IMAGE_FILE_LOCATION = "file:///sdcard/temp.jpg";
-	
+
 	private File tempFile;
 	private String srcPath;
 	private File sdcardTempFile;
 
 	private HttpUtil http;
-	
+
 	private ImageLoader imageLoader;
 	private DisplayImageOptions options;
-	
+	private ImageDownloader imageUtil = new ImageDownloader(this);
+
 	@ViewInject(R.id.user_usericon)
 	RoundImageView iv_icon;
 	@ViewInject(R.id.zmit_id_change_framelay_above)
@@ -94,26 +97,30 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 		startActivityForResult(intent, FOUR);
 	}
 
+	@OnClick(R.id.real_user_address)
+	public void onReal_user_addressClick(View view){
+		startActivityForResult(new Intent(this, CitySelectActivity.class),ADDRESS_REQUESTCODE);
+	}
+	
 	@OnClick(R.id.user_exit)
 	public void userExitonClick(View v) {
 		BaseApplication.saveUsername("", "");
-//		BaseApplication.user.setCity("");
-//		BaseApplication.user.setCityId(0);
-//		BaseApplication.user.setHead_url("");
-//		BaseApplication.user.setName("");
-//		BaseApplication.user.setPassword("");
-//		BaseApplication.user.setUserName("");
-//		BaseApplication.user.setUserSex("");
+		// BaseApplication.user.setCity("");
+		// BaseApplication.user.setCityId(0);
+		BaseApplication.user.setHead_url("");
+		 BaseApplication.user.setName("");
+		 BaseApplication.user.setPassword("");
+		 BaseApplication.user.setUserName("");
+		 BaseApplication.user.setUserSex("");
 		showShortToast("退出成功");
 		finish();
 	}
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
+
 		imageUri = Uri.parse(IMAGE_FILE_LOCATION);
 		setContentView(R.layout.activity_userinfo);
 		setTitle("个人信息");
@@ -122,38 +129,41 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 		ViewUtils.inject(this);
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
-		
+
 		imageLoader = ImageLoader.getInstance();
-		options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.userinfo)
-				.showImageOnFail(R.drawable.userinfo).showImageForEmptyUri(R.drawable.userinfo).build();
-		
+		options = new DisplayImageOptions.Builder()
+				.showImageOnLoading(R.drawable.userinfo)
+				.showImageOnFail(R.drawable.userinfo)
+				.showImageForEmptyUri(R.drawable.userinfo).build();
+
 		initView();
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
-		//http.getUserInfo(BaseApplication.getUserName());
+		// http.getUserInfo(BaseApplication.getUserName());
 	}
 
 	private void initView() {
-		imageLoader.displayImage(BaseApplication.user.getHead_url(), iv_icon, options);
-		
+		imageLoader.displayImage(BaseApplication.user.getHead_url(), iv_icon,
+				options);
+
 		String nameStr = BaseApplication.user.getUserName();
-		if(nameStr == null){
+		if (nameStr == null) {
 			tv_name.setHint("请设置昵称");
-		}else{
+		} else {
 			tv_name.setText(nameStr);
 		}
-		
+
 		String sexStr = BaseApplication.user.getUserSex();
-		if(sexStr == null){
+		if (sexStr == null) {
 			tv_sex.setHint("请选择您的性别");
-		}else{
+		} else {
 			tv_sex.setText(sexStr);
 		}
-		
+
 		String addressStr = BaseApplication.user.getCity();
-		if(addressStr == null){
+		if (addressStr == null) {
 			tv_address.setHint("请选择城市");
-		}else{
+		} else {
 			tv_address.setText(addressStr);
 		}
 	}
@@ -172,36 +182,48 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-			switch (requestCode) {
-			case THERE:
+		switch (requestCode) {
+		case THERE:
+			if (data != null) {
 				tv_name.setText(data.getStringExtra("name"));
-				break;
-			case FOUR:
+			}
+			break;
+		case FOUR:
+			if (data != null) {
 				Log.e("tag", data.getStringExtra("sex"));
 				tv_sex.setText(data.getStringExtra("sex"));
-				break;
-			case 100:
-				Bitmap bmp = BitmapFactory.decodeFile(sdcardTempFile
-						.getAbsolutePath());
-
-				if (bmp == null) {
-					return;
-				}
-				iv_icon.setImageBitmap(bmp);
-				srcPath = sdcardTempFile.toString();
-				Log.e("tag", srcPath);
-				// BitmapDrawable bd = new BitmapDrawable(bmp);
-				http.uploadHeadIcon(srcPath);
-				break;
-			case 101:
-				startPhotoZoom(Uri.fromFile(tempFile));
-				break;
-			case 102:
-				if (data != null)
-					sentPicToNext(data);
-				break;
 			}
-		
+			break;
+		case 100:
+			Bitmap bmp = BitmapFactory.decodeFile(sdcardTempFile
+					.getAbsolutePath());
+
+			if (bmp == null) {
+				return;
+			}
+			iv_icon.setImageBitmap(bmp);
+			srcPath = sdcardTempFile.toString();
+			Log.e("tag", srcPath);
+			http.uploadHeadIcon(srcPath);
+			break;
+		case 101:
+			startPhotoZoom(Uri.fromFile(tempFile));
+			break;
+		case 102:
+			if (data != null)
+				sentPicToNext(data);
+			break;
+		case ADDRESS_REQUESTCODE:
+			City city ;
+			if(resultCode==RESULT_OK&&(city= (City) data.getSerializableExtra("city"))!=null){
+				BaseApplication.user.setCity(city.getName());
+				tv_address.setText(city.getName());
+				BaseApplication.user.setCityId(city.getId());
+				//http.updateUserInfo("city",city.getId());
+			}
+			break;
+		}
+
 	}
 
 	// 将进行剪裁后的图片传递到下一个界面上
@@ -215,21 +237,20 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 				iv_icon.setImageBitmap(photo);
 				String f = getPhotoFileNameUser();
 				srcPath = Environment.getExternalStorageDirectory()
-						+ "/mitbbs/except_chat/img/thumbnail/" + f;
-				// imageUtil.writeToSdcardDD(f, photo);
-				// sendImage();
+						+ "/icar/except_chat/img/thumbnail/" + f;
+				Log.e("tag", srcPath);
+				imageUtil.writeToSdcardDD(f, photo);
+				http.uploadHeadIcon(srcPath);
 			}
 		}
 	}
 
 	protected void toTakePhoto() {
+		// TODO Auto-generated method stub
+		Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		// 指定调用相机拍照后照片的储存路径
-		 Intent intentFromCapture = new Intent(  
-                 MediaStore.ACTION_IMAGE_CAPTURE);  
-		 intentFromCapture.addCategory(Intent.CATEGORY_DEFAULT);
-		 intentFromCapture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
-         startActivityForResult(intentFromCapture,  
-                 101);  
+		cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
+		startActivityForResult(cameraintent, 101);
 	}
 
 	protected void pickPhoto() {
@@ -282,7 +303,7 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 
 			public void onClick(View v) {
 				tempFile = new File(Environment.getExternalStorageDirectory()
-						+"/DCIM/Camera/", getPhotoFileName());
+						+ "/DCIM/Camera/", getPhotoFileName());
 				toTakePhoto();
 				dismissPopupWindow();
 			}
@@ -343,15 +364,16 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 		intent.putExtra("scale", true);
 		startActivityForResult(intent, 102);
 	}
-	
-	public void take(){
-		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//action is capture
+
+	public void take() {
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);// action is
+																	// capture
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
 		intent.addCategory(Intent.CATEGORY_DEFAULT);
 		startActivityForResult(intent, 101);
 	}
-	
-	private void cropImageUri(Uri uri, int outputX, int outputY, int requestCode){
+
+	private void cropImageUri(Uri uri, int outputX, int outputY, int requestCode) {
 		Intent intent = new Intent("com.android.camera.action.CROP");
 		intent.setDataAndType(uri, "image/*");
 		intent.putExtra("crop", "true");
@@ -366,11 +388,12 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 		intent.putExtra("noFaceDetection", true); // no face detection
 		startActivityForResult(intent, requestCode);
 	}
-	
-	private Bitmap decodeUriAsBitmap(Uri uri){
+
+	private Bitmap decodeUriAsBitmap(Uri uri) {
 		Bitmap bitmap = null;
 		try {
-			bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
+			bitmap = BitmapFactory.decodeStream(getContentResolver()
+					.openInputStream(uri));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
@@ -381,7 +404,7 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 	@Override
 	public void onFailure(int requestCode, HttpException arg0, String arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -394,14 +417,15 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 			try {
 				JSONObject object = new JSONObject(result);
 				String code = object.getString("code");
-				if(code.equals("200")){
+				if (code.equals("200")) {
 					showShortToast("登录成功");
 					JSONObject userObject = object.getJSONObject("data");
-					BaseApplication.user.setHead_url(userObject.getString("avatar"));
+					BaseApplication.user.setHead_url(userObject
+							.getString("avatar"));
 					finish();
-				}else if(result.equals("0")){
+				} else if (result.equals("0")) {
 					showShortToast("登录失败");
-				}else{
+				} else {
 					showShortToast("登录失败,请填入正确的用户名或密码");
 				}
 			} catch (JSONException e) {

@@ -117,5 +117,6 @@
          android:layout_height="match_parent"
          android:divider="@color/white"
          android:dividerHeight="0dp"
+         android:listSelector="@drawable/bgm_selector"
          ></ListView>
 </LinearLayout>

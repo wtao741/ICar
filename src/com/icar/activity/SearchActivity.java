@@ -10,9 +10,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.icar.adapter.HotSearchAdapter;
+import com.icar.bean.SearchHistoryEntity;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
+import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -21,6 +25,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,8 +61,7 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 
 	@OnClick(R.id.search_referch)
 	public void searchReferchonClick(View v){
-		iv_refersh.setAnimation(refershAnim);
-		refershAnim.start();
+		iv_refersh.startAnimation(refershAnim);
 		http.hotSearch(2859);
 	}
 	
@@ -66,11 +70,12 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 	
 	private List<String> datas;
 
-	private String[] strs = { "美女车震", "罗生门" };
-
 	private HttpUtil http ; 
 	
 	private Animation refershAnim;   //刷新动画
+	
+	private List<SearchHistoryEntity> historyDatas;
+	private DbUtils  db;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,20 +87,17 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 
 		setOnClick();
 
-		setHistoryAdapter();
-		
 		http = new HttpUtil(this);
 		http.setHttpCallBack(this);
 		http.hotSearch(2859);
 		
 		refershAnim = AnimationUtils.loadAnimation(this, R.anim.search_refersh);
-		
+
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent(SearchActivity.this,
 						SearchResultActivity.class);
 				intent.putExtra("keys", datas.get(position));
@@ -103,21 +105,54 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 			}
 		});
 		
-		
+		listView.setOnItemClickListener( new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent intent = new Intent(SearchActivity.this,
+						SearchResultActivity.class);
+				intent.putExtra("keys", historyDatas.get(position).getMsg());
+				startActivity(intent);
+			}
+		});
+		db = DbUtils.create(this);
 	}
 
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		try {
+			historyDatas = db.findAll(Selector.from(SearchHistoryEntity.class).orderBy("id", true).limit(10) );
+		} catch (DbException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Log.e("tag", ""+historyDatas.size());
+		if(historyDatas == null){
+			tv_no.setVisibility(View.VISIBLE);
+			listView.setVisibility(View.GONE);
+		}else{
+			tv_no.setVisibility(View.GONE);
+			listView.setVisibility(View.VISIBLE);
+			setHistoryAdapter();
+		}
+	}
+	
 	private void setHistoryAdapter() {
 		// TODO Auto-generated method stub
 		List<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
-		for (int i = 0; i < strs.length; i++) {
+		for (int i = 0; i < historyDatas.size(); i++) {
 			Map<String, Object> temp = new HashMap<String, Object>();
-			temp.put("str", strs[i]);
+			temp.put("str", historyDatas.get(i).getMsg());
 			map.add(temp);
 		}
 		SimpleAdapter adapter = new SimpleAdapter(this, map,
 				R.layout.search_history_item, new String[] { "str" },
 				new int[] { R.id.searhc_history_item_tv });
 		listView.setAdapter(adapter);
+		
 	}
 
 	private void setOnClick() {
@@ -185,7 +220,7 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		refershAnim.cancel();
+		iv_refersh.clearAnimation();
 	}
 	
 	public void setAdapter(){

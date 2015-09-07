@@ -52,8 +52,7 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 		if(!isCollect){
 		   http.collect(BaseApplication.getUserName(), 3805, classid);
 		}else{
-			int[] ints = {classid};
-			http.delectCollect(BaseApplication.getUserName(), 3805, ints);
+			showShortToast("该文章已收藏");
 		}
 	}
 	
@@ -79,11 +78,13 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 			url = "http://api.iucars.com/index.php?g=App&m=Api&a=getHtmlContent&seriesid=3805&classid="
 					+ bean.getClassid();
 			setTitle(bean.getName());
+			http.getCollectStatus(3805, bean.getClassid());
 		} else if (type.equals("search")) {
 			searchBean = (SearchEntity) bundle.getSerializable("bean");
 			url = "http://api.iucars.com/index.php?g=App&m=Api&a=getHtmlContent&seriesid=3805&classid="
 					+ searchBean.getClassid();
 			setTitle(searchBean.getClassname());
+			http.getCollectStatus(3805, searchBean.getClassid());
 		}
         
 		setRightBackgorund(R.drawable.share_icon);
@@ -150,7 +151,19 @@ public class ShowActivity extends AbstractTitleActivity implements HttpCallBack{
 			Log.e("tag", "delect");
 			break;
 		case 2:
-			if(result.equals("101")){
+			int status = 0;
+			try {
+				JSONObject object = new JSONObject(result);
+				String code = object.getString("code");
+				if(code.equals("200")){
+					JSONObject dataObject = object.getJSONObject("data");
+					status = dataObject.getInt("status");
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(status == 1){
 				isCollect = true;
 				iv_collect.setImageResource(R.drawable.collection_click);
 			}else{

@@ -119,6 +119,13 @@ public class MainActivity extends TabActivity {
 						url = url.replace("./", "/");
 						BaseApplication.user.setHead_url("http://api.iucars.com"+url);
 						BaseApplication.user.setPassword(BaseApplication.getPassword());
+						String sex = userObject.getString("sex");
+						if(sex.equals("1")){
+							sex = "男";
+						}else{
+							sex = "女";
+						}
+						BaseApplication.user.setUserSex(sex);
 					}else if(result.equals("0")){
 					}else{
 					}

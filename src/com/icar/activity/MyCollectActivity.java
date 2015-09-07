@@ -176,7 +176,7 @@ public class MyCollectActivity extends AbstractTitleActivity implements
 					for (int i = checks.length - 1; i >= 0; i--) {
 						int index = ((Integer) checks[i]).intValue();
 						Log.e("tag", "index:"+datas.get(index).getId());
-						id += datas.get(index).getId()+".";
+						id += datas.get(index).getId()+",";
 						datas.remove(index);
 						adapter.setRemove(index);
 						Log.e("tag", ":" + index);

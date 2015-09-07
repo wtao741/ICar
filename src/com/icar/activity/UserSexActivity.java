@@ -65,18 +65,21 @@ public class UserSexActivity extends AbstractTitleActivity implements HeadClick{
 
 	@Override
 	public void left() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void right() {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent();
 		intent.putExtra("sex", temp);
 		setResult(RESULT_OK, intent);
 		Log.e("tag", temp);
+		if(temp.equals("男")){
+			temp = "1";
+		}else{
+			temp = "0";
+		}
 		http.updateUserInfo("sex",temp);
-		showShortToast("sex"+temp);
 		finish();
 	}
 }

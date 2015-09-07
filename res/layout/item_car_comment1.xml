@@ -40,7 +40,7 @@
         android:max="5"
         android:progress="1"
         android:maxHeight="15dp"
-        android:progressDrawable="@drawable/seekbar_up"
+        android:progressDrawable="@drawable/bg_seekbar"
         android:clickable="false"
         android:layout_alignTop="@id/score"
         android:thumb="@drawable/thumb_dn"
