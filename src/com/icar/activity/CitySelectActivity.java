@@ -90,12 +90,11 @@ public class CitySelectActivity extends AbstractTitleActivity {
 		letterListView
 				.setOnTouchingLetterChangedListener(new LetterListViewListener());
 		// allCity_lists = new ArrayList<City>();
-		dbHelper = new DBHelper(CitySelectActivity.this);
 		handler2.sendEmptyMessage(SHOWDIALOG);
 		
 		new Thread(new Runnable() {
 			public void run() {
-				
+				dbHelper = new DBHelper(CitySelectActivity.this);
 				cityInit();
 				handler2.sendEmptyMessage(DISMISSDIALOG);
 			}

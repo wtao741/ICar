@@ -1,55 +1,22 @@
 package com.icar.db;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.icar.bean.City;
 
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper {
 	public static final String TABLE_NAME = "users";
 	Context context;
+	DBUtil myDb ;
 
 	public DBHelper(Context context) {
-		//super(context, "city1.db", null, 1);
-		super(context, "city1.db", null, 1);
 		this.context = context;
-	}
-
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-//		Log.e("TGA", "建表开始");
-//		StringBuilder builder = new StringBuilder();
-//		AssetManager assets = context.getAssets();
-//		try {
-//			InputStream open = assets.open("city1.db");
-//			BufferedReader reader = new BufferedReader(new InputStreamReader(
-//					open));
-//			String line;
-//			while ((line = reader.readLine()) != null) {
-//				builder.append(line + "\n");
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} finally {
-//			assets.close();
-//		}
-//		Log.e("TGA", builder.toString());
-//		db.execSQL(builder.toString());
-//		Log.e("TGA", "建表结束");
-	}
-
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		myDb = new DBUtil();
 	}
 
 	/*
@@ -62,7 +29,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		Cursor cursor = null;
 		try {
 			list = new ArrayList<City>();
-			db = getReadableDatabase();
+			// getReadableDatabase();
+			db = myDb.openDatabase(context);
 			String[] columns = { "Id", "name", "pId", "lat", "lon", "letter" };
 			cursor = db.query(true, "jiche_city", null, null, null, null, null,
 					null, null);
@@ -89,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		SQLiteDatabase db = null;
 		Cursor cursor = null;
 		try {
-			db = getReadableDatabase();
+			db = myDb.openDatabase(context);
 			String[] columns = { "Id", "name", "pId", "lat", "lon", "letter" };
 			cursor = db.query("jiche_city", null, "name = ?",
 					new String[] { name }, null, null, null);
