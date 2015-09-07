@@ -8,15 +8,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.icar.bean.City;
+import com.icar.utils.AssetsDatabaseManager;
 
 public class DBHelper {
 	public static final String TABLE_NAME = "users";
 	Context context;
 	DBUtil myDb ;
-
+	// 获取管理对象，因为数据库需要通过管理对象才能够获取  
+	AssetsDatabaseManager mg ;  
+	// 通过管理对象获取数据库 
 	public DBHelper(Context context) {
 		this.context = context;
-		myDb = new DBUtil();
+		mg = AssetsDatabaseManager.getManager();  
 	}
 
 	/*
@@ -28,9 +31,8 @@ public class DBHelper {
 		ArrayList<City> list;
 		Cursor cursor = null;
 		try {
+			db =  mg.getDatabase("city1.db");
 			list = new ArrayList<City>();
-			// getReadableDatabase();
-			db = myDb.openDatabase(context);
 			String[] columns = { "Id", "name", "pId", "lat", "lon", "letter" };
 			cursor = db.query(true, "jiche_city", null, null, null, null, null,
 					null, null);
@@ -46,18 +48,18 @@ public class DBHelper {
 		} finally {
 			if (cursor != null)
 				cursor.close();
-			if (db != null)
-				db.close();
+//			if (db != null)
+//				db.close();
 		}
 		return list;
 	}
 
 	public City getCityByName(String name) {
-		City city = null;
 		SQLiteDatabase db = null;
+		City city = null;
 		Cursor cursor = null;
 		try {
-			db = myDb.openDatabase(context);
+			db =  mg.getDatabase("city1.db");
 			String[] columns = { "Id", "name", "pId", "lat", "lon", "letter" };
 			cursor = db.query("jiche_city", null, "name = ?",
 					new String[] { name }, null, null, null);
@@ -72,8 +74,8 @@ public class DBHelper {
 		} finally {
 			if (cursor != null)
 				cursor.close();
-			if (cursor != null)
-				db.close();
+//			if (db != null)
+//				db.close();
 		}
 		return city;
 	}

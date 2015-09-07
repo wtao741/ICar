@@ -14,6 +14,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +35,7 @@ public class ReturnPassActivity extends AbstractTitleActivity implements HeadCli
 			showShortToast("请填写正确的电话号码");
 		} else if (len == 13) {
 			str = mobile.replace(" ", "");
-			http.getAuthCode(str);
+			http.returnPassword(str);
 		}
 	}
 	
@@ -119,13 +120,16 @@ public class ReturnPassActivity extends AbstractTitleActivity implements HeadCli
 
 	@Override
 	public void onSuccess(int requestCode,ResponseInfo<String> arg0) {
-        String result = arg0.result;
+		String result = arg0.result;
+		 Log.e("tag", result);
         if(result.equals("200")){
         	Bundle bundle = new Bundle();
         	bundle.putString("mobile", str);
         	showShortToast("请求成功");
         	openActivity(SettingPasswordActivity.class, bundle);
         	finish();
+        }else if(result.equals("201")){
+        	showShortToast("请求失败，请重试");
         }else{
         	showShortToast("请求失败，请重试");
         }

@@ -487,6 +487,30 @@ public class HttpUtil {
 	}
 
 	/*
+	 * 找回密码
+	 */
+	public void returnPassword(String mobile) {
+		tips.showLoadingDialog(context);
+		url = url + "m=Member&a=_authcode&mobile=" + mobile;
+		httpUtils.send(HttpMethod.GET, url, new RequestCallBack<String>() {
+
+			@Override
+			public void onFailure(HttpException arg0, String arg1) {
+				// TODO Auto-generated method stub
+				errorTips(arg0.getExceptionCode());
+				tips.dismissLoadingDialog();
+				httpCallBack.onFailure(0, arg0, arg1);
+			}
+
+			public void onSuccess(ResponseInfo<String> arg0) {
+				// TODO Auto-generated method stub
+				tips.dismissLoadingDialog();
+				httpCallBack.onSuccess(0, arg0);
+			}
+		});
+	}
+
+	/*
 	 * 注册
 	 */
 	public void register(String mobile, String auth, String password) {
@@ -711,10 +735,11 @@ public class HttpUtil {
 								showShortToast("修改成功");
 								JSONObject userObject = object
 										.getJSONObject("data");
-								String name = userObject.getString(type);
 								if (type.equals("nickname")) {
+									String name = userObject.getString(type);
 									BaseApplication.user.setUserName(name);
-								} else if(name.equals("sex")){
+								} else if(type.equals("sex")){
+									String name = userObject.getString(type);
 									if(name.equals("1")){
 										name = "男";
 									}else{
@@ -722,7 +747,8 @@ public class HttpUtil {
 									}
 									BaseApplication.user.setUserSex(name);
 								}else{
-									
+									String city = userObject.getString("cityname");
+									Log.e("tag", city);
 								}
 
 							} else {

@@ -219,7 +219,8 @@ public class UserInfoActivity extends AbstractTitleActivity implements
 				BaseApplication.user.setCity(city.getName());
 				tv_address.setText(city.getName());
 				BaseApplication.user.setCityId(city.getId());
-				//http.updateUserInfo("city",city.getId());
+				Log.e("tag", ""+city.getId());
+				http.updateUserInfo("cityid",city.getId());
 			}
 			break;
 		}

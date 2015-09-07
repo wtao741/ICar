@@ -72,6 +72,7 @@ public class CitySelectActivity extends AbstractTitleActivity {
 	private static final int DISMISSDIALOG = 3;
 	private static final int HOT_CITY_COUNT = 4;// 热门城市的个数
 
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,10 +92,10 @@ public class CitySelectActivity extends AbstractTitleActivity {
 				.setOnTouchingLetterChangedListener(new LetterListViewListener());
 		// allCity_lists = new ArrayList<City>();
 		handler2.sendEmptyMessage(SHOWDIALOG);
+		dbHelper = new DBHelper(CitySelectActivity.this);
 		
 		new Thread(new Runnable() {
 			public void run() {
-				dbHelper = new DBHelper(CitySelectActivity.this);
 				cityInit();
 				handler2.sendEmptyMessage(DISMISSDIALOG);
 			}
@@ -112,6 +113,7 @@ public class CitySelectActivity extends AbstractTitleActivity {
 				finish();
 			}
 		});
+
 		lng_city_lay.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -129,7 +131,7 @@ public class CitySelectActivity extends AbstractTitleActivity {
 				finish();
 			}
 		});
-
+		
 		initGps();
 		initOverlay();
 	}
@@ -377,5 +379,9 @@ public class CitySelectActivity extends AbstractTitleActivity {
 				break;
 			}
 		};
+	};
+	
+	protected void onStop() {
+		super.onStop();
 	};
 }

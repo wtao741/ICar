@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.icar.base.BaseApplication;
+import com.icar.utils.AssetsDatabaseManager;
 import com.icar.utils.HttpCallBack;
 import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.HttpUtils;
@@ -142,6 +143,9 @@ public class MainActivity extends TabActivity {
 				
 			}
 		});
+	    
+	   // 初始化，只需要调用一次  
+	    AssetsDatabaseManager.initManager(getApplication());  
 	}
 
 	public void initView(Bundle savedInStanceState) {
