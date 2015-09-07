@@ -15,6 +15,7 @@ import com.icar.utils.HttpUtil;
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.db.sqlite.WhereBuilder;
 import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -108,11 +109,12 @@ public class SearchResultActivity extends Activity implements HttpCallBack {
 		List<SearchHistoryEntity> datas;
 		try {
 			datas = db.findAll(Selector.from(SearchHistoryEntity.class).where("msg", "=", keys));
-			if(datas.size() == 0){
+			if(datas == null){
 				Log.e("tag", "null");
 				db.save(bean);
 			}else{
-				Log.e("tag", "save:"+datas.size());
+				db.delete(SearchHistoryEntity.class, WhereBuilder.b("msg", "=", keys));
+				db.save(bean);
 			}
 		} catch (DbException e) {
 			// TODO Auto-generated catch block

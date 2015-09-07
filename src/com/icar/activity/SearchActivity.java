@@ -129,7 +129,6 @@ public class SearchActivity extends Activity implements OnClickListener,HttpCall
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Log.e("tag", ""+historyDatas.size());
 		if(historyDatas == null){
 			tv_no.setVisibility(View.VISIBLE);
 			listView.setVisibility(View.GONE);
