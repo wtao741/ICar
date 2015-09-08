@@ -20,6 +20,7 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 public class BaseApplication extends Application {
 
@@ -82,6 +83,8 @@ public class BaseApplication extends Application {
 		preference = getSharedPreferences("login", MODE_PRIVATE);
 		edit = preference.edit();
 		initUniversalImageLoader();
+		
+		Log.e("tag", "这是测试");
 	}
 
 	public void getWidthAndHeight() {
